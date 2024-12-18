@@ -18,7 +18,7 @@ const categories = [
 ];
 
 const players = [];
-const numPlayers = 4; // Changeable for 2-6 players
+let numPlayers = 4; // Default value, will be updated
 let currentPlayerIndex = 0;
 
 let questions = {};
@@ -50,9 +50,12 @@ function createGameBoard() {
 
 // Add players to the game
 function setupPlayers() {
+    const urlParams = new URLSearchParams(window.location.search);
+    numPlayers = parseInt(urlParams.get('numPlayers'));
     for (let i = 0; i < numPlayers; i++) {
+        const playerName = urlParams.get(`player${i + 1}`);
         players.push({
-            name: `Player ${i + 1}`,
+            name: playerName || `Player ${i + 1}`,
             position: -1, // Start position off the board
             cards: []
         });
