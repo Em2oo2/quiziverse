@@ -7,7 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 40px);
-    background-color: white;
+    background: linear-gradient(135deg, #E51C79, #FFBF00, #007FFF, #A4C639, #ffccff, #ffff99, #32CD32, #FF6347); /* Gradient background */
 }
 
 .container {
@@ -17,12 +17,121 @@ body {
     flex: 1;
 }
 
+#rules {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+}
+
+#rules h1 {
+    font-size: 2.5em;
+    color: #007FFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#rules h2 {
+    font-size: 2em;
+    color: #333;
+    margin-top: 20px;
+}
+
+#rules p, #rules ul, #rules ol {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
+#rules ul, #rules ol {
+    padding-left: 20px;
+}
+
+#rules ul li, #rules ol li {
+    margin-bottom: 10px;
+}
+
+#rules h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+#rules p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+#rules ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#rules ul li {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.start-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    background-color: #007FFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #005bb5;
+}
+
+.start-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Add space between buttons */
+    margin-top: 20px;
+}
+
+.rules-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    background-color: #FF6347; /* Different background color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rules-button:hover {
+    background-color: #cc4c39; /* Change background color on hover */
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px;
     margin: 20px 0;
     width: 80%;
+    background-color: white; /* Add white background */
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
 .board-cell {
@@ -37,11 +146,14 @@ body {
 }
 
 .board-cell::after {
-    content: attr(data-category);
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2em;
 }
 
 .board-cell[data-category="Erreurs historiques en science"] {
@@ -76,13 +188,47 @@ body {
     background-color: #FF6347; /* Tomato */
 }
 
+.board-cell[data-category="Erreurs historiques en science"]::after {
+    content: '\f5d2'; /* fa-flask */
+}
+
+.board-cell[data-category="Inventions accidentelles"]::after {
+    content: '\f0c3'; /* fa-flask */
+}
+
+.board-cell[data-category="Échecs dans l'espace"]::after {
+    content: '\f197'; /* fa-rocket */
+}
+
+.board-cell[data-category="Prédictions scientifiques erronées"]::after {
+    content: '\f0eb'; /* fa-lightbulb */
+}
+
+.board-cell[data-category="Société"]::after {
+    content: '\f0c0'; /* fa-users */
+}
+
+.board-cell[data-category="Bonus"]::after {
+    content: '\f06b'; /* fa-star */
+}
+
+.board-cell[data-category="Expérience réussie"]::after {
+    content: '\f091'; /* fa-thumbs-up */
+}
+
+.board-cell[data-category="Expérience ratée"]::after {
+    content: '\f165'; /* fa-thumbs-down */
+}
+
 .player-token {
-    width: 20px;
-    height: 20px;
+    width: 30px; /* Increase size */
+    height: 30px; /* Increase size */
     border-radius: 50%;
     position: absolute;
     top: 5px;
     left: 5px;
+    border: 2px solid white; /* Add border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow */
 }
 
 .player-token-score {
@@ -97,6 +243,15 @@ body {
 .player-1 { background-color: blue; }
 .player-2 { background-color: green; }
 .player-3 { background-color: yellow; }
+.player-4 { background-color: purple; }
+.player-5 { background-color: orange; }
+
+.player-0-name { color: red; }
+.player-1-name { color: blue; }
+.player-2-name { color: green; }
+.player-3-name { color: yellow; }
+.player-4-name { color: purple; }
+.player-5-name { color: orange; }
 
 .controls {
     display: flex;
@@ -105,15 +260,30 @@ body {
     margin-bottom: 20px;
 }
 
+.dice-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust margin */
+}
+
 #roll-dice {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    padding: 15px 30px; /* Increase padding */
+    font-size: 1.5em; /* Increase font size */
+    background-color: #007FFF; /* Add background color */
+    color: white; /* Change text color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+#roll-dice:hover {
+    background-color: #005bb5; /* Change background color on hover */
 }
 
 #dice-value {
     font-size: 2em;
-    margin-bottom: 10px;
+    margin-left: 10px; /* Add margin to the left */
 }
 
 #score-board {
@@ -123,6 +293,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: #f9f9f9; /* Add background color */
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+#score-board .controls {
+    width: 100%; /* Ensure controls take full width */
+}
+
+#score-board .player-token-score {
+    margin-right: 10px;
+    display: inline-block;
+    width: 20px; /* Increase size */
+    height: 20px; /* Increase size */
+    border-radius: 50%;
+    border: 2px solid #ccc; /* Add border */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+#score-board .player-score {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin */
+    font-size: 1.2em; /* Increase font size */
+    color: #333; /* Change text color */
 }
 
 .question-popup {
@@ -132,27 +328,47 @@ body {
     transform: translate(-50%, -50%);
     background-color: white;
     border: 2px solid #ccc;
-    padding: 20px;
+    padding: 30px; /* Increase padding */
     z-index: 1000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 60%;
-    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Enhance shadow */
+    width: 70%; /* Increase width */
+    max-width: 900px; /* Increase max-width */
+    border-radius: 15px; /* Add border radius */
 }
 
 .question-popup h2 {
     margin-top: 0;
+    font-size: 1.8em; /* Increase font size */
+    color: #333; /* Change text color */
+}
+
+.question-popup p {
+    font-size: 1.2em; /* Increase font size */
+    color: #555; /* Change text color */
 }
 
 .question-popup button {
     margin: 10px;
-    padding: 10px 15px;
+    padding: 10px 20px; /* Increase padding */
+    font-size: 1.2em; /* Increase font size */
+    background-color: #007FFF; /* Add background color */
+    color: white; /* Change text color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+.question-popup button:hover {
+    background-color: #005bb5; /* Change background color on hover */
 }
 
 .question-popup img {
     float: left;
     margin-right: 15px;
-    max-width: 100px;
+    max-width: 150px; /* Increase max-width */
     height: auto;
+    border-radius: 10px; /* Add border radius */
 }
 
 .correct-answer {
@@ -175,6 +391,74 @@ body {
     0% { background-color: #fff; }
     50% { background-color: #ffcccc; }
     100% { background-color: #fff; }
+}
+
+.card-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    align-self: flex-start; /* Align with the board */
+}
+
+.card-images img {
+    width: 70px; /* Increase size */
+    height: auto;
+}
+
+.card-icon {
+    width: 30px; /* Increase size */
+    height: 30px; /* Increase size */
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.player-turn-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007FFF; /* Background color */
+    color: white; /* Text color */
+    padding: 15px 20px; /* Padding */
+    border-radius: 10px; /* Border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow */
+    font-size: 1.2em; /* Font size */
+    text-align: center; /* Center text */
+}
+
+#playerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#playerForm label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#playerForm input[type="number"],
+#playerForm input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#playerForm button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#playerForm button:hover {
+    background-color: #45a049;
 }
 
 @media (max-width: 768px) {
@@ -230,4 +514,113 @@ body {
     .question-popup button {
         padding: 6px 10px;
     }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .landscape-prompt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black; /* Change background to black */
+        color: white;
+        font-size: 1.5em;
+        text-align: center;
+        z-index: 1000;
+    }
+}
+
+.winner-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #ccc;
+    padding: 30px;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 70%;
+    max-width: 900px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.winner-popup h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.winner-popup h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.winner-popup ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.winner-popup ul li {
+    margin: 10px 0;
+}
+
+.winner-popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007FFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.winner-popup button:hover {
+    background-color: #005bb5;
+}
+
+.custom-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.custom-popup p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.custom-popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007FFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-popup button:hover {
+    background-color: #005bb5;
 }

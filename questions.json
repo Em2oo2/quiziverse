@@ -1,178 +1,211 @@
 {
     "Erreurs historiques en science": [
         {
-            "question": "Quel scientifique a été brûlé sur le bûcher pour ses idées héliocentriques?",
-            "answer": false
-        },
-        {
-            "question": "La théorie de la génération spontanée a été réfutée par Louis Pasteur.",
+            "question": "Ptolémée soutenait que la Terre était au centre de l'univers.",
             "answer": true
         },
         {
-            "question": "L'éther luminifère était une théorie acceptée avant la relativité d'Einstein.",
-            "answer": true
+            "question": "La phrénologie était une méthode scientifique pour étudier le cerveau.",
+             "answer": false
         },
         {
-            "question": "La Terre est plate selon les scientifiques du Moyen Âge.",
+             "question": "Le concept des quatre humeurs a dominé la médecine pendant des siècles.",
+              "answer": true
+        },
+       {
+            "question": "Les théories sur les miasmes ont conduit à des améliorations majeures dans la santé publique.",
             "answer": false
         },
         {
-            "question": "L'alchimie est considérée comme une science exacte.",
+            "question": "Le plomb était autrefois considéré comme un matériau sans danger.",
+             "answer": true
+        },
+      {
+            "question":"La théorie de la dérive des continents était immédiatement acceptée par la communauté scientifique.",
             "answer": false
         }
     ],
     "Inventions accidentelles": [
         {
-            "question": "Le micro-ondes a été inventé par accident.",
+            "question": "La radioactivité a été découverte par hasard par Henri Becquerel.",
             "answer": true
         },
         {
-            "question": "Le Coca-Cola a été inventé comme un médicament.",
+           "question": "Les corn flakes ont été créés en essayant de faire du pain.",
             "answer": true
         },
         {
-            "question": "Le Velcro a été inventé après l'observation des crochets des bardanes.",
+            "question": "Le Slinky a été inventé par un ingénieur naval.",
+            "answer": true
+         },
+         {
+           "question":"Le saccharine a été découverte en travaillant sur des dérivés du charbon.",
             "answer": true
         },
         {
-            "question": "Le Teflon a été découvert par accident lors d'une expérience sur les gaz réfrigérants.",
-            "answer": true
+            "question": "Le Viagra a été développé à l'origine pour traiter l'angine de poitrine.",
+           "answer": true
         },
         {
-            "question": "Le Post-it a été inventé pour remplacer les trombones.",
-            "answer": false
+            "question": "Le téflon a été créé par un chimiste en faisant des recherches sur les gaz.",
+             "answer":true
         }
+
     ],
     "Échecs dans l'espace": [
+       {
+           "question": "La mission soviétique Soyuz 1 s'est soldée par la mort de son cosmonaute.",
+           "answer": true
+        },
         {
-            "question": "La mission Apollo 13 a été un succès complet.",
+           "question": "Le programme spatial américain a toujours été exempt de pertes humaines.",
             "answer": false
         },
         {
-            "question": "La navette spatiale Challenger a explosé en 1986.",
+            "question": "La sonde spatiale Phobos 1 a été perdue lors de sa mission vers Mars.",
             "answer": true
         },
         {
-            "question": "La sonde Mars Climate Orbiter s'est écrasée à cause d'une erreur de conversion d'unités.",
-            "answer": true
-        },
+            "question": "Le télescope spatial Hubble a fonctionné parfaitement dès son lancement.",
+           "answer": false
+         },
         {
-            "question": "La mission Beagle 2 a réussi à atterrir sur Mars.",
-            "answer": false
+            "question": "La sonde spatiale Rosetta a réussi à atterrir sur la comète 67P/Churyumov-Gerasimenko.",
+           "answer": false
         },
-        {
-            "question": "La mission Luna 15 a été un succès pour l'Union soviétique.",
-            "answer": false
-        }
+       {
+          "question": "Le programme spatial soviétique n'a connu aucun échec majeur.",
+          "answer":false
+         }
     ],
     "Prédictions scientifiques erronées": [
-        {
-            "question": "Thomas Edison a prédit que l'électricité serait trop dangereuse pour être utilisée dans les maisons.",
+       {
+            "question": "Les frères Wright ont été encouragés par les scientifiques de leur époque.",
+            "answer": false
+       },
+       {
+            "question":"Les ordinateurs portables allaient remplacer les ordinateurs de bureau selon un article du magazine Time en 1977.",
             "answer": false
         },
         {
-            "question": "Lord Kelvin a déclaré qu'il n'y avait rien de nouveau à découvrir en physique.",
-            "answer": true
+            "question": "L'aviation n'aura aucune utilité militaire, selon certains experts au début du XXe siècle.",
+           "answer": true
         },
         {
-            "question": "IBM a prédit qu'il n'y aurait jamais besoin de plus de cinq ordinateurs dans le monde.",
-            "answer": true
+            "question":"Les automobiles ne remplaceront jamais les chevaux comme moyen de transport.",
+            "answer":true
         },
-        {
-            "question": "La télévision en couleur ne sera jamais populaire, selon certains experts.",
-            "answer": true
-        },
-        {
-            "question": "Le téléphone n'a aucune valeur commerciale, selon Western Union.",
-            "answer": true
+       {
+           "question":"L'ère de l'information n'aura pas d'impact sur la vie quotidienne.",
+            "answer":false
+       },
+      {
+            "question": "Il était une fois impensable de voyager à la vitesse du son.",
+            "answer": false
         }
     ],
-    "Société": [
+   "Société": [
         {
-            "question": "La Déclaration des droits de l'homme et du citoyen a été adoptée en 1789.",
-            "answer": true
-        },
-        {
-            "question": "La première guerre mondiale a commencé en 1914.",
-            "answer": true
-        },
-        {
-            "question": "La révolution industrielle a commencé au 19ème siècle.",
+            "question": "Le système féodal a duré jusqu'au 20ème siècle en Europe.",
             "answer": false
         },
         {
-            "question": "L'ONU a été fondée après la seconde guerre mondiale.",
-            "answer": true
+            "question": "Le suffrage universel a été introduit simultanément dans tous les pays.",
+            "answer": false
         },
         {
-            "question": "Le mur de Berlin est tombé en 1989.",
-            "answer": true
+            "question": "La Guerre de Cent Ans a duré exactement 100 ans.",
+             "answer": false
+         },
+        {
+           "question": "La Déclaration d'indépendance américaine a été signée en 1776.",
+           "answer": true
+        },
+        {
+          "question": "La Renaissance a commencé en Italie au 15ème siècle.",
+           "answer": true
+        },
+        {
+            "question": "La Révolution française a été menée par le roi.",
+            "answer":false
         }
-    ],
-    "Bonus": [
+   ],
+   "Bonus": [
         {
-            "question": "La pénicilline a été découverte par accident.",
+            "question": "Les rayons X ont été découverts par hasard.",
+             "answer": true
+         },
+        {
+            "question": "Le Coca-Cola contenait de la cocaïne à ses débuts.",
             "answer": true
         },
         {
-            "question": "Le Velcro a été inventé par un astronaute.",
+           "question": "Le caoutchouc vulcanisé a été découvert par Charles Goodyear par accident.",
+           "answer": true
+         },
+        {
+            "question": "Les sachets de thé ont été inventés par un vendeur de thé.",
+            "answer": true
+        },
+       {
+            "question":"La crème glacée a été découverte en Chine et rapportée par Marco Polo en Europe.",
+            "answer": false
+        },
+       {
+         "question": "Le pétrole a été utilisé comme lubrifiant dans l'Antiquité.",
+          "answer": false
+         }
+  ],
+  "Expérience réussie": [
+        {
+            "question": "La théorie de la relativité d'Einstein a été confirmée par des expériences.",
+            "answer": true
+       },
+       {
+            "question":"La construction du Canal de Panama a été une entreprise réussie.",
+           "answer":true
+       },
+        {
+          "question": "La conquête du pôle Sud par Amundsen a été un succès.",
+           "answer":true
+        },
+        {
+            "question": "L'invention du vaccin contre la polio a éradiqué la maladie.",
+            "answer": false
+         },
+        {
+          "question": "Le projet Manhattan a permis la création d'armes nucléaires.",
+            "answer": true
+       },
+      {
+           "question":"La création d'Internet est un succès de l'ingénierie.",
+           "answer": true
+      }
+ ],
+ "Expérience ratée": [
+        {
+            "question": "La construction du Titanic a été un modèle de sécurité.",
             "answer": false
         },
         {
-            "question": "Le plastique a été découvert par accident.",
-            "answer": true
-        },
+            "question": "Le crash du Hindenburg est un exemple d'échec technologique.",
+             "answer":true
+         },
         {
-            "question": "Le four à micro-ondes a été inventé par un ingénieur de la NASA.",
+           "question": "Le projet du Concorde a été un échec commercial.",
+            "answer": true
+       },
+        {
+            "question": "L'expérience de la grenouille galvanisée de Galvani a été une réussite.",
+            "answer": false
+         },
+        {
+           "question":"Le programme de désescalade de guerre par l'ONU a été un succès",
             "answer": false
         },
-        {
-            "question": "Le Coca-Cola a été inventé par un pharmacien.",
-            "answer": true
-        }
-    ],
-    "Expérience réussie": [
-        {
-            "question": "La mission Apollo 11 a réussi à atterrir sur la Lune.",
-            "answer": true
-        },
-        {
-            "question": "Le vaccin contre la variole a été un succès.",
-            "answer": true
-        },
-        {
-            "question": "La découverte de l'ADN a été une expérience réussie.",
-            "answer": true
-        },
-        {
-            "question": "La mission Mars Rover a été un échec.",
+      {
+            "question":"La prohibition aux Etats-Unis a été une réussite.",
             "answer": false
-        },
-        {
-            "question": "La première greffe de cœur a été un succès.",
-            "answer": true
-        }
-    ],
-    "Expérience ratée": [
-        {
-            "question": "La mission Apollo 13 a été un succès complet.",
-            "answer": false
-        },
-        {
-            "question": "La navette spatiale Challenger a explosé en 1986.",
-            "answer": true
-        },
-        {
-            "question": "La sonde Mars Climate Orbiter s'est écrasée à cause d'une erreur de conversion d'unités.",
-            "answer": true
-        },
-        {
-            "question": "La mission Beagle 2 a réussi à atterrir sur Mars.",
-            "answer": false
-        },
-        {
-            "question": "La mission Luna 15 a été un succès pour l'Union soviétique.",
-            "answer": false
-        }
+      }
     ]
 }

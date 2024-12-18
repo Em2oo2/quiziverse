@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuiziVerse</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="game-board" class="board"></div>
+    </div>
+    <div id="score-board">
+        <div class="card-images">
+            <img src="img/Mistakes in the History of Science.svg" alt="Erreurs historiques en science">
+            <img src="img/Accidental Inventions.svg" alt="Inventions accidentelles">
+            <img src="img/Space Failures.svg" alt="Échecs dans l'espace">
+            <img src="img/Inaccurate Scientific Predictions.svg" alt="Prédictions scientifiques erronées">
+            <img src="img/society.svg" alt="Société">
+            <img src="img/Bonus.svg" alt="Bonus">
+        </div>
+        <div class="controls">
+            <div class="dice-container">
+                <button id="roll-dice"><i class="fas fa-dice"></i></button>
+                <div id="dice-value">0</div>
+            </div>
+        </div>
+    </div>
+    <div class="player-turn-box" id="player-turn-box">
+        <div id="player-turn">C'est au tour de...</div>
+    </div>
+    <div class="landscape-prompt" id="landscape-prompt">
+        Veuillez passer en mode paysage pour une meilleure expérience.
+    </div>
+    <script src="questions.js"></script>
+    <script src="game.js"></script>
+    <script>
+        function checkOrientation() {
+            const prompt = document.getElementById('landscape-prompt');
+            if (window.innerHeight > window.innerWidth) {
+                prompt.style.display = 'flex';
+            } else {
+                prompt.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('load', checkOrientation);
+    </script>
+</body>
+</html>
