@@ -8,19 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <section id="rules">
-        <h2>Règles du jeu</h2>
-        <p>Bienvenue à QuiziVerse! Voici les règles du jeu:</p>
-        <ul>
-            <li>Répondez à chaque question dans le temps imparti.</li>
-            <li>Chaque bonne réponse vous rapporte des points.</li>
-            <li>Essayez d'obtenir le score le plus élevé possible!</li>
-        </ul>
-    </section>
-    <a href="game.html" class="start-button">Commencer le jeu</a>
+    <div class="container">
+        <div id="game-board" class="board"></div>
+    </div>
+    <div id="score-board">
+        <div class="card-images">
+            <img src="img/Mistakes in the History of Science.svg" alt="Erreurs historiques en science">
+            <img src="img/Accidental Inventions.svg" alt="Inventions accidentelles">
+            <img src="img/Space Failures.svg" alt="Échecs dans l'espace">
+            <img src="img/Inaccurate Scientific Predictions.svg" alt="Prédictions scientifiques erronées">
+            <img src="img/society.svg" alt="Société">
+            <img src="img/Bonus.svg" alt="Bonus">
+        </div>
+        <div class="controls">
+            <div id="dice-value">0</div>
+            <button id="roll-dice"><i class="fas fa-dice"></i></button>
+            <div id="player-turn">C'est au tour de...</div>
+        </div>
+    </div>
     <div class="landscape-prompt" id="landscape-prompt">
         Veuillez passer en mode paysage pour une meilleure expérience.
     </div>
+    <script src="questions.js"></script>
+    <script src="game.js"></script>
     <script>
         function checkOrientation() {
             const prompt = document.getElementById('landscape-prompt');

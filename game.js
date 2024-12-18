@@ -124,6 +124,9 @@ function triggerQuestion(position, playerIndex) {
         } else {
             alert("Expérience ratée! Vous n'avez pas de carte à perdre.");
         }
+        // Update turn to the next player
+        currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
+        playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
         rollDiceButton.disabled = false; // Re-enable the dice roll button
         return;
     }
@@ -232,6 +235,7 @@ function checkForWinner() {
         }
     }
     alert(`Le vainqueur est ${winner.name} avec ${winner.cards.length} cartes!`);
+    window.location.href = 'index.html'; // Redirect to index.html
 }
 
 // Event Listeners
