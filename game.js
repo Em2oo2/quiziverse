@@ -223,6 +223,12 @@ function updatePlayerPosition(playerIndex) {
         const newCell = cells[player.position];
         const token = document.createElement('div');
         token.classList.add('player-token', `player-${playerIndex}`);
+
+        // Check for existing tokens in the same cell
+        const existingTokens = newCell.querySelectorAll('.player-token');
+        const offset = existingTokens.length * 10; // Adjust offset as needed
+        token.style.transform = `translate(${offset}px, ${offset}px)`;
+
         newCell.appendChild(token);
     } else {
         // Position off the board

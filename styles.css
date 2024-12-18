@@ -243,11 +243,15 @@ body {
 .player-1 { background-color: blue; }
 .player-2 { background-color: green; }
 .player-3 { background-color: yellow; }
+.player-4 { background-color: purple; }
+.player-5 { background-color: orange; }
 
 .player-0-name { color: red; }
 .player-1-name { color: blue; }
 .player-2-name { color: green; }
 .player-3-name { color: yellow; }
+.player-4-name { color: purple; }
+.player-5-name { color: orange; }
 
 .controls {
     display: flex;
