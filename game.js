@@ -83,6 +83,12 @@ function rollDice() {
     // Update visuals
     updatePlayerPosition(currentPlayerIndex);
     triggerQuestion(currentPlayer.position, currentPlayerIndex);
+
+    // Check if the player has reached the final cell (bottom right corner)
+    if (currentPlayer.position === 29) {
+        alert(`${currentPlayer.name} a atteint la fin du plateau!`);
+        checkForWinner();
+    }
 }
 
 // Trigger a question popup
@@ -215,6 +221,17 @@ function updateScore(playerIndex) {
     const player = players[playerIndex];
     const scoreRow = document.getElementById(`player-${playerIndex}-score`);
     scoreRow.textContent = `${player.name}: ${player.cards.length} cartes`;
+}
+
+// Check for the winner
+function checkForWinner() {
+    let winner = players[0];
+    for (let i = 1; i < players.length; i++) {
+        if (players[i].cards.length > winner.cards.length) {
+            winner = players[i];
+        }
+    }
+    alert(`Le vainqueur est ${winner.name} avec ${winner.cards.length} cartes!`);
 }
 
 // Event Listeners
