@@ -1,0 +1,112 @@
+{
+    "Erreurs historiques en science": [
+        {
+            "question": "Quel scientifique a été brûlé sur le bûcher pour ses idées héliocentriques?",
+            "answer": false
+        },
+        {
+            "question": "La théorie de la génération spontanée a été réfutée par Louis Pasteur.",
+            "answer": true
+        },
+        {
+            "question": "L'éther luminifère était une théorie acceptée avant la relativité d'Einstein.",
+            "answer": true
+        },
+        {
+            "question": "La Terre est plate selon les scientifiques du Moyen Âge.",
+            "answer": false
+        },
+        {
+            "question": "L'alchimie est considérée comme une science exacte.",
+            "answer": false
+        }
+    ],
+    "Inventions accidentelles": [
+        {
+            "question": "Le micro-ondes a été inventé par accident.",
+            "answer": true
+        },
+        {
+            "question": "Le Coca-Cola a été inventé comme un médicament.",
+            "answer": true
+        },
+        {
+            "question": "Le Velcro a été inventé après l'observation des crochets des bardanes.",
+            "answer": true
+        },
+        {
+            "question": "Le Teflon a été découvert par accident lors d'une expérience sur les gaz réfrigérants.",
+            "answer": true
+        },
+        {
+            "question": "Le Post-it a été inventé pour remplacer les trombones.",
+            "answer": false
+        }
+    ],
+    "Échecs spatiaux": [
+        {
+            "question": "La mission Apollo 13 a été un succès complet.",
+            "answer": false
+        },
+        {
+            "question": "La navette spatiale Challenger a explosé en 1986.",
+            "answer": true
+        },
+        {
+            "question": "La sonde Mars Climate Orbiter s'est écrasée à cause d'une erreur de conversion d'unités.",
+            "answer": true
+        },
+        {
+            "question": "La mission Beagle 2 a réussi à atterrir sur Mars.",
+            "answer": false
+        },
+        {
+            "question": "La mission Luna 15 a été un succès pour l'Union soviétique.",
+            "answer": false
+        }
+    ],
+    "Prédictions scientifiques erronées": [
+        {
+            "question": "Thomas Edison a prédit que l'électricité serait trop dangereuse pour être utilisée dans les maisons.",
+            "answer": false
+        },
+        {
+            "question": "Lord Kelvin a déclaré qu'il n'y avait rien de nouveau à découvrir en physique.",
+            "answer": true
+        },
+        {
+            "question": "IBM a prédit qu'il n'y aurait jamais besoin de plus de cinq ordinateurs dans le monde.",
+            "answer": true
+        },
+        {
+            "question": "La télévision en couleur ne sera jamais populaire, selon certains experts.",
+            "answer": true
+        },
+        {
+            "question": "Le téléphone n'a aucune valeur commerciale, selon Western Union.",
+            "answer": true
+        }
+    ],
+    "Société": [
+        {
+            "question": "La Déclaration des droits de l'homme et du citoyen a été adoptée en 1789.",
+            "answer": true
+        },
+        {
+            "question": "La première guerre mondiale a commencé en 1914.",
+            "answer": true
+        },
+        {
+            "question": "La révolution industrielle a commencé au 19ème siècle.",
+            "answer": false
+        },
+        {
+            "question": "L'ONU a été fondée après la seconde guerre mondiale.",
+            "answer": true
+        },
+        {
+            "question": "Le mur de Berlin est tombé en 1989.",
+            "answer": true
+        }
+    ]
+}
