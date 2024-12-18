@@ -47,6 +47,12 @@
 
         window.addEventListener('resize', checkOrientation);
         window.addEventListener('load', checkOrientation);
+
+        window.addEventListener('beforeunload', function (e) {
+            const confirmationMessage = 'Les données du jeu seront perdues si vous quittez ou rafraîchissez la page.';
+            e.returnValue = confirmationMessage; // Standard for most browsers
+            return confirmationMessage; // For some older browsers
+        });
     </script>
 </body>
 </html>

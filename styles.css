@@ -415,6 +415,41 @@ body {
     text-align: center; /* Center text */
 }
 
+#playerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#playerForm label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#playerForm input[type="number"],
+#playerForm input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#playerForm button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#playerForm button:hover {
+    background-color: #45a049;
+}
+
 @media (max-width: 768px) {
     .board {
         grid-template-columns: repeat(4, 1fr);
