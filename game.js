@@ -55,9 +55,14 @@ function setupPlayers() {
         });
 
         const scoreRow = document.createElement('div');
-        scoreRow.textContent = `${players[i].name}: 0 cards`;
+        scoreRow.innerHTML = `<span class="player-token-score player-${i}"></span>${players[i].name}: 0 cards`;
         scoreRow.id = `player-${i}-score`;
         scoreBoard.appendChild(scoreRow);
+
+        // Create player token
+        const token = document.createElement('div');
+        token.classList.add('player-token', `player-${i}`);
+        document.querySelector('.board-cell').appendChild(token);
     }
     playerTurnIndicator.textContent = `C'est au tour de ${players[0].name}`;
 }
@@ -159,10 +164,16 @@ function updatePlayerPosition(playerIndex) {
     const cells = document.querySelectorAll('.board-cell');
 
     // Clear previous position
-    cells.forEach(cell => cell.classList.remove(`player-${playerIndex}`));
+    cells.forEach(cell => {
+        const token = cell.querySelector(`.player-${playerIndex}`);
+        if (token) token.remove();
+    });
 
     // Set new position
-    cells[player.position].classList.add(`player-${playerIndex}`);
+    const newCell = cells[player.position];
+    const token = document.createElement('div');
+    token.classList.add('player-token', `player-${playerIndex}`);
+    newCell.appendChild(token);
 }
 
 // Update the score for a player

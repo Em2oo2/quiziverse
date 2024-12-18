@@ -108,5 +108,27 @@
             "question": "Le mur de Berlin est tombé en 1989.",
             "answer": true
         }
+    ],
+    "Bonus": [
+        {
+            "question": "La pénicilline a été découverte par accident.",
+            "answer": true
+        },
+        {
+            "question": "Le Velcro a été inventé par un astronaute.",
+            "answer": false
+        },
+        {
+            "question": "Le plastique a été découvert par accident.",
+            "answer": true
+        },
+        {
+            "question": "Le four à micro-ondes a été inventé par un ingénieur de la NASA.",
+            "answer": false
+        },
+        {
+            "question": "Le Coca-Cola a été inventé par un pharmacien.",
+            "answer": true
+        }
     ]
 }

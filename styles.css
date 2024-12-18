@@ -68,6 +68,28 @@ body {
     background-color: #ffff99;
 }
 
+.player-token {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.player-token-score {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.player-0 { background-color: red; }
+.player-1 { background-color: blue; }
+.player-2 { background-color: green; }
+.player-3 { background-color: yellow; }
+
 .controls {
     display: flex;
     flex-direction: column;
