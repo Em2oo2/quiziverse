@@ -112,12 +112,14 @@ body {
 }
 
 .player-token {
-    width: 20px;
-    height: 20px;
+    width: 30px; /* Increase size */
+    height: 30px; /* Increase size */
     border-radius: 50%;
     position: absolute;
     top: 5px;
     left: 5px;
+    border: 2px solid white; /* Add border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow */
 }
 
 .player-token-score {
@@ -133,6 +135,11 @@ body {
 .player-2 { background-color: green; }
 .player-3 { background-color: yellow; }
 
+.player-0-name { color: red; }
+.player-1-name { color: blue; }
+.player-2-name { color: green; }
+.player-3-name { color: yellow; }
+
 .controls {
     display: flex;
     flex-direction: column;
@@ -140,15 +147,30 @@ body {
     margin-bottom: 20px;
 }
 
+.dice-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust margin */
+}
+
 #roll-dice {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    padding: 15px 30px; /* Increase padding */
+    font-size: 1.5em; /* Increase font size */
+    background-color: #007FFF; /* Add background color */
+    color: white; /* Change text color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+#roll-dice:hover {
+    background-color: #005bb5; /* Change background color on hover */
 }
 
 #dice-value {
     font-size: 2em;
-    margin-bottom: 10px;
+    margin-left: 10px; /* Add margin to the left */
 }
 
 #score-board {
@@ -158,6 +180,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: #f9f9f9; /* Add background color */
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+#score-board .controls {
+    width: 100%; /* Ensure controls take full width */
+}
+
+#score-board .player-token-score {
+    margin-right: 10px;
+    display: inline-block;
+    width: 20px; /* Increase size */
+    height: 20px; /* Increase size */
+    border-radius: 50%;
+    border: 2px solid #ccc; /* Add border */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+#score-board .player-score {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin */
+    font-size: 1.2em; /* Increase font size */
+    color: #333; /* Change text color */
 }
 
 .question-popup {
@@ -167,27 +215,47 @@ body {
     transform: translate(-50%, -50%);
     background-color: white;
     border: 2px solid #ccc;
-    padding: 20px;
+    padding: 30px; /* Increase padding */
     z-index: 1000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 60%;
-    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Enhance shadow */
+    width: 70%; /* Increase width */
+    max-width: 900px; /* Increase max-width */
+    border-radius: 15px; /* Add border radius */
 }
 
 .question-popup h2 {
     margin-top: 0;
+    font-size: 1.8em; /* Increase font size */
+    color: #333; /* Change text color */
+}
+
+.question-popup p {
+    font-size: 1.2em; /* Increase font size */
+    color: #555; /* Change text color */
 }
 
 .question-popup button {
     margin: 10px;
-    padding: 10px 15px;
+    padding: 10px 20px; /* Increase padding */
+    font-size: 1.2em; /* Increase font size */
+    background-color: #007FFF; /* Add background color */
+    color: white; /* Change text color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+.question-popup button:hover {
+    background-color: #005bb5; /* Change background color on hover */
 }
 
 .question-popup img {
     float: left;
     margin-right: 15px;
-    max-width: 100px;
+    max-width: 150px; /* Increase max-width */
     height: auto;
+    border-radius: 10px; /* Add border radius */
 }
 
 .correct-answer {
@@ -223,6 +291,19 @@ body {
 .card-images img {
     width: 70px; /* Increase size */
     height: auto;
+}
+
+.player-turn-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007FFF; /* Background color */
+    color: white; /* Text color */
+    padding: 15px 20px; /* Padding */
+    border-radius: 10px; /* Border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow */
+    font-size: 1.2em; /* Font size */
+    text-align: center; /* Center text */
 }
 
 @media (max-width: 768px) {

@@ -53,19 +53,22 @@ function setupPlayers() {
     for (let i = 0; i < numPlayers; i++) {
         players.push({
             name: `Player ${i + 1}`,
-            position: 0,
+            position: -1, // Start position off the board
             cards: []
         });
 
         const scoreRow = document.createElement('div');
-        scoreRow.innerHTML = `<span class="player-token-score player-${i}"></span>${players[i].name}: 0 cards`;
+        scoreRow.classList.add('player-score');
+        scoreRow.innerHTML = `<span class="player-token-score player-${i}"></span><span class="player-${i}-name">${players[i].name}</span>: 0 cartes`;
         scoreRow.id = `player-${i}-score`;
         scoreBoard.appendChild(scoreRow);
 
-        // Create player token
+        // Create player token off the board
         const token = document.createElement('div');
         token.classList.add('player-token', `player-${i}`);
-        document.querySelector('.board-cell').appendChild(token);
+        gameBoard.parentElement.appendChild(token); // Append to the game board container
+        token.style.left = '-40px'; // Position to the left of the first cell
+        token.style.top = 'calc(50% - 15px)'; // Center vertically
     }
     playerTurnIndicator.textContent = `C'est au tour de ${players[0].name}`;
 }
@@ -213,17 +216,24 @@ function updatePlayerPosition(playerIndex) {
     });
 
     // Set new position
-    const newCell = cells[player.position];
-    const token = document.createElement('div');
-    token.classList.add('player-token', `player-${playerIndex}`);
-    newCell.appendChild(token);
+    if (player.position >= 0) {
+        const newCell = cells[player.position];
+        const token = document.createElement('div');
+        token.classList.add('player-token', `player-${playerIndex}`);
+        newCell.appendChild(token);
+    } else {
+        // Position off the board
+        const token = document.querySelector(`.player-token.player-${playerIndex}`);
+        token.style.left = '-40px'; // Position to the left of the first cell
+        token.style.top = 'calc(50% - 15px)'; // Center vertically
+    }
 }
 
 // Update the score for a player
 function updateScore(playerIndex) {
     const player = players[playerIndex];
     const scoreRow = document.getElementById(`player-${playerIndex}-score`);
-    scoreRow.textContent = `${player.name}: ${player.cards.length} cartes`;
+    scoreRow.innerHTML = `<span class="player-token-score player-${playerIndex}"></span><span class="player-${playerIndex}-name">${player.name}</span>: ${player.cards.length} cartes`;
 }
 
 // Check for the winner
