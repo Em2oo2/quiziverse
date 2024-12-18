@@ -12,7 +12,9 @@ const categories = [
     "Échecs dans l'espace",
     "Prédictions scientifiques erronées",
     "Société",
-    "Bonus"
+    "Bonus",
+    "Expérience réussie",
+    "Expérience ratée"
 ];
 
 const players = [];
@@ -33,13 +35,14 @@ fetch('questions.json')
 function createGameBoard() {
     const numCells = 30; // Example: 30 cells total
     const bonusPositions = [5, 15, 25]; // Example positions for Bonus cells
+    const specialCategories = ["Bonus", "Expérience réussie", "Expérience ratée"];
     for (let i = 0; i < numCells; i++) {
         const cell = document.createElement('div');
         cell.classList.add('board-cell');
         if (bonusPositions.includes(i)) {
-            cell.dataset.category = "Bonus";
+            cell.dataset.category = specialCategories[i % specialCategories.length];
         } else {
-            cell.dataset.category = categories[i % (categories.length - 1)];
+            cell.dataset.category = categories[i % (categories.length - specialCategories.length)];
         }
         gameBoard.appendChild(cell);
     }
@@ -93,6 +96,32 @@ function triggerQuestion(position, playerIndex) {
         return;
     }
 
+    if (category === "Expérience réussie") {
+        const currentPlayer = players[playerIndex];
+        if (!currentPlayer.cards.includes(category)) {
+            currentPlayer.cards.push(category);
+            updateScore(playerIndex);
+            alert("Expérience réussie! Vous avez gagné une carte et vous pouvez relancer le dé.");
+        } else {
+            alert("Expérience réussie! Vous pouvez relancer le dé.");
+        }
+        rollDiceButton.disabled = false; // Re-enable the dice roll button
+        return;
+    }
+
+    if (category === "Expérience ratée") {
+        const currentPlayer = players[playerIndex];
+        if (currentPlayer.cards.length > 0) {
+            currentPlayer.cards.pop();
+            updateScore(playerIndex);
+            alert("Expérience ratée! Vous avez perdu une carte !");
+        } else {
+            alert("Expérience ratée! Vous n'avez pas de carte à perdre.");
+        }
+        rollDiceButton.disabled = false; // Re-enable the dice roll button
+        return;
+    }
+
     const questionData = questions[category];
     if (!questionData || questionData.length === 0) {
         console.error('No questions found for category', category);
@@ -107,7 +136,7 @@ function triggerQuestion(position, playerIndex) {
     questionPopup.innerHTML = `
         <h2>${category}</h2>
         ${category === "Société" ? '<img src="img/society.svg" alt="Société">' : ''}
-        ${category === "Échecs dans l'espace" ? '<img src="img/Space faileures.svg" alt="Échecs dans l\'espace">' : ''}
+        ${category === "Échecs dans l'espace" ? '<img src="img/Space Failures.svg" alt="Échecs dans l\'espace">' : ''}
         ${category === "Erreurs historiques en science" ? '<img src="img/Mistakes in the History of Science.svg" alt="Erreurs historiques en science">' : ''}
         ${category === "Inventions accidentelles" ? '<img src="img/Accidental Inventions.svg" alt="Inventions accidentelles">' : ''}
         ${category === "Prédictions scientifiques erronées" ? '<img src="img/Inaccurate Scientific Predictions.svg" alt="Prédictions scientifiques erronées">' : ''}
@@ -144,12 +173,17 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
         if (isBonus) {
             alert("Bonne réponse! Vous pouvez relancer le dé.");
             rollDiceButton.disabled = false; // Re-enable the dice roll button
-            rollDice();
             return;
         }
     } else {
         cell.classList.add('incorrect-answer');
         setTimeout(() => cell.classList.remove('incorrect-answer'), 1000);
+
+        if (cell.dataset.category === "Expérience ratée" && currentPlayer.cards.length > 0) {
+            currentPlayer.cards.pop();
+            updateScore(playerIndex);
+            alert("Vous avez perdu une carte !");
+        }
     }
 
     // Update turn

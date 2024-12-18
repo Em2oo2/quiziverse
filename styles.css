@@ -68,6 +68,14 @@ body {
     background-color: #ffff99;
 }
 
+.board-cell[data-category="Expérience réussie"] {
+    background-color: #32CD32; /* LimeGreen */
+}
+
+.board-cell[data-category="Expérience ratée"] {
+    background-color: #FF6347; /* Tomato */
+}
+
 .player-token {
     width: 20px;
     height: 20px;

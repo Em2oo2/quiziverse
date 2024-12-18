@@ -43,7 +43,7 @@
             "answer": false
         }
     ],
-    "Échecs spatiaux": [
+    "Échecs dans l'espace": [
         {
             "question": "La mission Apollo 13 a été un succès complet.",
             "answer": false
@@ -129,6 +129,50 @@
         {
             "question": "Le Coca-Cola a été inventé par un pharmacien.",
             "answer": true
+        }
+    ],
+    "Expérience réussie": [
+        {
+            "question": "La mission Apollo 11 a réussi à atterrir sur la Lune.",
+            "answer": true
+        },
+        {
+            "question": "Le vaccin contre la variole a été un succès.",
+            "answer": true
+        },
+        {
+            "question": "La découverte de l'ADN a été une expérience réussie.",
+            "answer": true
+        },
+        {
+            "question": "La mission Mars Rover a été un échec.",
+            "answer": false
+        },
+        {
+            "question": "La première greffe de cœur a été un succès.",
+            "answer": true
+        }
+    ],
+    "Expérience ratée": [
+        {
+            "question": "La mission Apollo 13 a été un succès complet.",
+            "answer": false
+        },
+        {
+            "question": "La navette spatiale Challenger a explosé en 1986.",
+            "answer": true
+        },
+        {
+            "question": "La sonde Mars Climate Orbiter s'est écrasée à cause d'une erreur de conversion d'unités.",
+            "answer": true
+        },
+        {
+            "question": "La mission Beagle 2 a réussi à atterrir sur Mars.",
+            "answer": false
+        },
+        {
+            "question": "La mission Luna 15 a été un succès pour l'Union soviétique.",
+            "answer": false
         }
     ]
 }
