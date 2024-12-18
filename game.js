@@ -62,7 +62,7 @@ function setupPlayers() {
 
         const scoreRow = document.createElement('div');
         scoreRow.classList.add('player-score');
-        scoreRow.innerHTML = `<span class="player-token-score player-${i}"></span><span class="player-${i}-name">${players[i].name}</span>: 0 cartes`;
+        scoreRow.innerHTML = `<span class="player-token-score player-${i}"></span><span class="player-${i}-name">${players[i].name}</span>: 0`;
         scoreRow.id = `player-${i}-score`;
         scoreBoard.appendChild(scoreRow);
 
@@ -84,17 +84,22 @@ function rollDice() {
     const currentPlayer = players[currentPlayerIndex];
 
     // Move player position
-    currentPlayer.position = (currentPlayer.position + diceValue) % 30;
+    if (currentPlayer.position + diceValue >= 29) {
+        currentPlayer.position = 29;
+    } else {
+        currentPlayer.position = (currentPlayer.position + diceValue) % 30;
+    }
 
     // Update visuals
     updatePlayerPosition(currentPlayerIndex);
-    triggerQuestion(currentPlayer.position, currentPlayerIndex);
 
     // Check if the player has reached the final cell (bottom right corner)
     if (currentPlayer.position === 29) {
-        alert(`${currentPlayer.name} a atteint la fin du plateau!`);
-        checkForWinner();
+        showCustomPopup(`${currentPlayer.name} a atteint la fin du plateau! La partie est terminée.`, checkForWinner);
+        return; // End the game immediately
     }
+
+    triggerQuestion(currentPlayer.position, currentPlayerIndex);
 }
 
 // Trigger a question popup
@@ -113,11 +118,14 @@ function triggerQuestion(position, playerIndex) {
         if (!currentPlayer.cards.includes(category)) {
             currentPlayer.cards.push(category);
             updateScore(playerIndex);
-            alert("Expérience réussie! Vous avez gagné une carte et vous pouvez relancer le dé.");
+            showCustomPopup("Expérience réussie! Vous avez gagné une carte et vous pouvez relancer le dé.", () => {
+                rollDiceButton.disabled = false; // Re-enable the dice roll button
+            });
         } else {
-            alert("Expérience réussie! Vous pouvez relancer le dé.");
+            showCustomPopup("Expérience réussie! Vous pouvez relancer le dé.", () => {
+                rollDiceButton.disabled = false; // Re-enable the dice roll button
+            });
         }
-        rollDiceButton.disabled = false; // Re-enable the dice roll button
         return;
     }
 
@@ -126,14 +134,20 @@ function triggerQuestion(position, playerIndex) {
         if (currentPlayer.cards.length > 0) {
             currentPlayer.cards.pop();
             updateScore(playerIndex);
-            alert("Expérience ratée! Vous avez perdu une carte !");
+            showCustomPopup("Expérience ratée! Vous avez perdu une carte !", () => {
+                // Update turn to the next player
+                currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
+                playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
+                rollDiceButton.disabled = false; // Re-enable the dice roll button
+            });
         } else {
-            alert("Expérience ratée! Vous n'avez pas de carte à perdre.");
+            showCustomPopup("Expérience ratée! Vous n'avez pas de carte à perdre.", () => {
+                // Update turn to the next player
+                currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
+                playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
+                rollDiceButton.disabled = false; // Re-enable the dice roll button
+            });
         }
-        // Update turn to the next player
-        currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-        playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
-        rollDiceButton.disabled = false; // Re-enable the dice roll button
         return;
     }
 
@@ -181,13 +195,15 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
 
             // Check for win condition
             if (currentPlayer.cards.length === categories.length - 1) { // Exclude "Bonus" category
-                alert(`${currentPlayer.name} a gagné en collectant toutes les cartes !`);
+                showCustomPopup(`${currentPlayer.name} a gagné en collectant toutes les cartes !`, checkForWinner);
+                return;
             }
         }
 
         if (isBonus) {
-            alert("Bonne réponse! Vous pouvez relancer le dé.");
-            rollDiceButton.disabled = false; // Re-enable the dice roll button
+            showCustomPopup("Bonne réponse! Vous pouvez relancer le dé.", () => {
+                rollDiceButton.disabled = false; // Re-enable the dice roll button
+            });
             return;
         }
     } else {
@@ -197,7 +213,13 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
         if (cell.dataset.category === "Expérience ratée" && currentPlayer.cards.length > 0) {
             currentPlayer.cards.pop();
             updateScore(playerIndex);
-            alert("Vous avez perdu une carte !");
+            showCustomPopup("Vous avez perdu une carte !", () => {
+                // Update turn to the next player
+                currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
+                playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
+                rollDiceButton.disabled = false; // Re-enable the dice roll button
+            });
+            return;
         }
     }
 
@@ -205,6 +227,25 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
     currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
     playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
     rollDiceButton.disabled = false; // Re-enable the dice roll button
+}
+
+// Show custom popup
+function showCustomPopup(message, callback) {
+    const popup = document.createElement('div');
+    popup.classList.add('custom-popup');
+    popup.innerHTML = `
+        <p>${message}</p>
+        <button onclick="closeCustomPopup()">OK</button>
+    `;
+    document.body.appendChild(popup);
+
+    function closeCustomPopup() {
+        popup.remove();
+        if (callback) callback();
+    }
+
+    // Attach the closeCustomPopup function to the button
+    popup.querySelector('button').addEventListener('click', closeCustomPopup);
 }
 
 // Update player position on the board
@@ -242,7 +283,24 @@ function updatePlayerPosition(playerIndex) {
 function updateScore(playerIndex) {
     const player = players[playerIndex];
     const scoreRow = document.getElementById(`player-${playerIndex}-score`);
-    scoreRow.innerHTML = `<span class="player-token-score player-${playerIndex}"></span><span class="player-${playerIndex}-name">${player.name}</span>: ${player.cards.length} cartes`;
+    const cardImages = player.cards.map(card => {
+        const cardImageMap = {
+            "Erreurs historiques en science": "Mistakes in the History of Science.svg",
+            "Inventions accidentelles": "Accidental Inventions.svg",
+            "Échecs dans l'espace": "Space Failures.svg",
+            "Prédictions scientifiques erronées": "Inaccurate Scientific Predictions.svg",
+            "Société": "society.svg",
+            "Bonus": "Bonus.svg",
+            "Expérience réussie": "fa-thumbs-up",
+            "Expérience ratée": "failure.svg"
+        };
+        if (card === "Expérience réussie") {
+            return `<i class="fas ${cardImageMap[card]} card-icon"></i>`;
+        } else {
+            return `<img src="img/${cardImageMap[card]}" alt="${card}" class="card-icon">`;
+        }
+    }).join(' ');
+    scoreRow.innerHTML = `<span class="player-token-score player-${playerIndex}"></span><span class="player-${playerIndex}-name">${player.name}</span>: ${player.cards.length} ${cardImages}`;
 }
 
 // Check for the winner
@@ -251,10 +309,58 @@ function checkForWinner() {
     for (let i = 1; i < players.length; i++) {
         if (players[i].cards.length > winner.cards.length) {
             winner = players[i];
+        } else if (players[i].cards.length === winner.cards.length && players[i].position === 29 && winner.position !== 29) {
+            winner = players[i];
         }
     }
-    alert(`Le vainqueur est ${winner.name} avec ${winner.cards.length} cartes!`);
-    window.location.href = 'index.html'; // Redirect to index.html
+
+    // Sort players by the number of cards they have, and by who reached the end first
+    const ranking = players.slice().sort((a, b) => {
+        if (b.cards.length === a.cards.length) {
+            return b.position === 29 ? 1 : -1;
+        }
+        return b.cards.length - a.cards.length;
+    });
+
+    // Create the winner popup
+    const winnerPopup = document.createElement('div');
+    winnerPopup.classList.add('winner-popup');
+    winnerPopup.innerHTML = `
+        <h2>Le vainqueur est ${winner.name} avec ${winner.cards.length} cartes!</h2>
+        <h3>Classement:</h3>
+        <ul>
+            ${ranking.map(player => {
+                const cardImages = player.cards.map(card => {
+                    const cardImageMap = {
+                        "Erreurs historiques en science": "Mistakes in the History of Science.svg",
+                        "Inventions accidentelles": "Accidental Inventions.svg",
+                        "Échecs dans l'espace": "Space Failures.svg",
+                        "Prédictions scientifiques erronées": "Inaccurate Scientific Predictions.svg",
+                        "Société": "society.svg",
+                        "Bonus": "Bonus.svg",
+                        "Expérience réussie": "fa-thumbs-up",
+                        "Expérience ratée": "failure.svg"
+                    };
+                    if (card === "Expérience réussie") {
+                        return `<i class="fas ${cardImageMap[card]} card-icon"></i>`;
+                    } else {
+                        return `<img src="img/${cardImageMap[card]}" alt="${card}" class="card-icon">`;
+                    }
+                }).join(' ');
+                return `<li>${player.name}: ${player.cards.length} ${cardImages}</li>`;
+            }).join('')}
+        </ul>
+        <button id="replay-button">Rejouer</button>
+    `;
+    document.body.appendChild(winnerPopup);
+
+    // Attach the replayGame function to the button
+    document.getElementById('replay-button').addEventListener('click', replayGame);
+}
+
+// Replay the game
+function replayGame() {
+    window.location.reload();
 }
 
 // Event Listeners
