@@ -164,7 +164,7 @@ function triggerQuestion(position, playerIndex) {
     questionPopup.classList.add('question-popup');
     questionPopup.innerHTML = `
         <h2>${category}</h2>
-        ${category === "Société" ? '<img src="img/society.svg" alt="Société">' : ''}
+        ${category === "Société" ? '<img src="img/Society.svg" alt="Société">' : ''}
         ${category === "Échecs dans l'espace" ? '<img src="img/Space Failures.svg" alt="Échecs dans l\'espace">' : ''}
         ${category === "Erreurs historiques en science" ? '<img src="img/Mistakes in the History of Science.svg" alt="Erreurs historiques en science">' : ''}
         ${category === "Inventions accidentelles" ? '<img src="img/Accidental Inventions.svg" alt="Inventions accidentelles">' : ''}
