@@ -189,7 +189,7 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
         cell.classList.add('correct-answer');
         setTimeout(() => cell.classList.remove('correct-answer'), 1000);
 
-        if (!currentPlayer.cards.includes(cell.dataset.category) && cell.dataset.category !== "Bonus") {
+        if (!currentPlayer.cards.includes(cell.dataset.category) || cell.dataset.category === "Bonus") {
             currentPlayer.cards.push(cell.dataset.category);
             updateScore(playerIndex);
 
@@ -201,7 +201,11 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
         }
 
         if (isBonus) {
-            showCustomPopup("Bonne réponse! Vous pouvez relancer le dé.", () => {
+            if (!currentPlayer.cards.includes("Bonus")) {
+                currentPlayer.cards.push("Bonus");
+                updateScore(playerIndex);
+            }
+            showCustomPopup("Bonne réponse! Vous avez gagné une carte Bonus et vous pouvez relancer le dé.", () => {
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
             return;

@@ -1,211 +1,162 @@
 {
     "Erreurs historiques en science": [
-        {
-            "question": "Ptolémée soutenait que la Terre était au centre de l'univers.",
+       {
+            "question": "L'idée que la Terre était plate était une théorie scientifique largement acceptée au Moyen Âge.",
+            "answer": false
+        },
+         {
+            "question": "On croyait autrefois que les maladies étaient causées par des mauvais esprits.",
             "answer": true
         },
         {
-            "question": "La phrénologie était une méthode scientifique pour étudier le cerveau.",
-             "answer": false
-        },
-        {
-             "question": "Le concept des quatre humeurs a dominé la médecine pendant des siècles.",
-              "answer": true
-        },
-       {
-            "question": "Les théories sur les miasmes ont conduit à des améliorations majeures dans la santé publique.",
-            "answer": false
-        },
-        {
-            "question": "Le plomb était autrefois considéré comme un matériau sans danger.",
-             "answer": true
-        },
-      {
-            "question":"La théorie de la dérive des continents était immédiatement acceptée par la communauté scientifique.",
+            "question": "L'alchimie était une science qui visait uniquement à transformer le plomb en or.",
             "answer": false
         }
     ],
     "Inventions accidentelles": [
         {
-            "question": "La radioactivité a été découverte par hasard par Henri Becquerel.",
+            "question": "Les Post-it ont été inventés par accident lorsqu'un scientifique a essayé de créer un adhésif puissant.",
             "answer": true
         },
         {
-           "question": "Les corn flakes ont été créés en essayant de faire du pain.",
+            "question": "Le Nutella a été inventé pour remplacer le chocolat, rare pendant la Seconde Guerre mondiale.",
             "answer": true
         },
         {
-            "question": "Le Slinky a été inventé par un ingénieur naval.",
+            "question": "Le Velcro a été découvert en observant des bardanes collées à la fourrure d'un chien.",
             "answer": true
-         },
+        },
+        {
+            "question": "La pénicilline a été découverte accidentellement par Alexander Fleming.",
+            "answer": true
+        },
+        {
+            "question": "Le WD-40 est né d'un échec industriel et était initialement destiné à être une peinture en aérosol pour voitures.",
+            "answer": true
+        },
+        {
+            "question": "La Tarte Tatin a été créée par accident lorsque deux sœurs ont laissé leur tarte aux pommes trop longtemps au four.",
+            "answer": true
+        },
+        {
+            "question": "Le four à micro-ondes a été inventé lorsqu'un ingénieur a accidentellement fait fondre une barre de chocolat en travaillant sur la technologie radar.",
+            "answer": true
+        },
+        {
+            "question": "Rapid’Asparagus est un produit de consommation qui a échoué commercialement malgré une idée innovante.",
+            "answer": true
+        },
+        {
+            "question": "Le Téflon, une substance glissante et durable utilisée pour les ustensiles de cuisine antiadhésifs, a été accidentellement découvert lors de la création d'un réfrigérant.",
+            "answer": true
+        },
+        {
+            "question": "Wilhelm Röntgen a découvert les rayons X en observant une étrange lueur sur une plaque photographique.",
+            "answer": true
+        },
+        {
+            "question": "La sérendipité décrit la découverte de quelque chose d'utile en cherchant autre chose.",
+            "answer": true
+        },
+        {
+            "question": "Le pansement en plastique, largement utilisé dans les hôpitaux, a été inventé après qu'un médecin a vu la peau d'un patient guérir plus rapidement avec du plastique.",
+            "answer": true
+        },
+        {
+            "question": "Le Roquefort a été inventé après qu'un morceau de lait caillé ait été laissé dans une grotte et soit devenu moisi.",
+            "answer": true
+        },
+        {
+            "question": "Le jus d'orange a failli provoquer une catastrophe lorsqu'il a été accidentellement mélangé à une substance explosive.",
+            "answer": true
+        },
          {
-           "question":"Le saccharine a été découverte en travaillant sur des dérivés du charbon.",
+            "question": "La catastrophe de Fukushima a été causée par une série d'erreurs humaines et de défaillances techniques.",
             "answer": true
-        },
-        {
-            "question": "Le Viagra a été développé à l'origine pour traiter l'angine de poitrine.",
-           "answer": true
-        },
-        {
-            "question": "Le téflon a été créé par un chimiste en faisant des recherches sur les gaz.",
-             "answer":true
         }
-
     ],
     "Échecs dans l'espace": [
-       {
-           "question": "La mission soviétique Soyuz 1 s'est soldée par la mort de son cosmonaute.",
-           "answer": true
-        },
-        {
-           "question": "Le programme spatial américain a toujours été exempt de pertes humaines.",
+         {
+            "question": "La mission Apollo 1 a été un succès total dès le début.",
             "answer": false
         },
         {
-            "question": "La sonde spatiale Phobos 1 a été perdue lors de sa mission vers Mars.",
-            "answer": true
+            "question": "La perte de la navette Challenger a été un accident tragique du programme spatial américain.",
+           "answer": true
         },
-        {
-            "question": "Le télescope spatial Hubble a fonctionné parfaitement dès son lancement.",
-           "answer": false
-         },
-        {
-            "question": "La sonde spatiale Rosetta a réussi à atterrir sur la comète 67P/Churyumov-Gerasimenko.",
-           "answer": false
-        },
-       {
-          "question": "Le programme spatial soviétique n'a connu aucun échec majeur.",
-          "answer":false
-         }
+         {
+            "question": "Le satellite russe Sputnik 1 a été mis en orbite sans aucun problème.",
+            "answer": false
+        }
     ],
     "Prédictions scientifiques erronées": [
-       {
-            "question": "Les frères Wright ont été encouragés par les scientifiques de leur époque.",
-            "answer": false
-       },
-       {
-            "question":"Les ordinateurs portables allaient remplacer les ordinateurs de bureau selon un article du magazine Time en 1977.",
+        {
+            "question":"Les scientifiques pensaient que voler serait impossible pour les humains.",
+            "answer": true
+        },
+         {
+            "question":"L'internet était considéré comme une technologie qui ne serait pas largement adoptée par la population.",
             "answer": false
         },
         {
-            "question": "L'aviation n'aura aucune utilité militaire, selon certains experts au début du XXe siècle.",
-           "answer": true
+            "question":"On pensait que le développement des ordinateurs n'aurait aucun impact significatif sur la société.",
+            "answer": false
+         }
+    ],
+    "Société": [
+         {
+            "question": "Le Code d'Hammurabi est l'un des plus anciens codes de lois écrits.",
+            "answer": true
         },
         {
-            "question":"Les automobiles ne remplaceront jamais les chevaux comme moyen de transport.",
-            "answer":true
-        },
-       {
-           "question":"L'ère de l'information n'aura pas d'impact sur la vie quotidienne.",
-            "answer":false
-       },
-      {
-            "question": "Il était une fois impensable de voyager à la vitesse du son.",
+            "question": "Les Jeux Olympiques antiques avaient un but uniquement sportif.",
             "answer": false
+        },
+        {
+           "question": "La construction des pyramides d'Égypte a été réalisée sans aucune forme d'ingénierie.",
+           "answer": false
+         }
+    ],
+    "Bonus": [
+         {
+           "question": "Le chewing-gum a été inventé par un fabricant de pneus.",
+            "answer": true
+        },
+        {
+            "question": "Le popsicle a été inventé par un enfant de 11 ans.",
+            "answer": true
+         },
+          {
+            "question": "Le colorant mauve a été découvert par accident en essayant de trouver un médicament contre le paludisme.",
+             "answer": true
         }
     ],
-   "Société": [
+    "Expérience réussie": [
+         {
+            "question":"L'expérience de Rutherford sur la feuille d'or a mené à la découverte du noyau atomique.",
+            "answer": true
+         },
         {
-            "question": "Le système féodal a duré jusqu'au 20ème siècle en Europe.",
+            "question":"La découverte de la structure de l'ADN par Watson et Crick a été un échec.",
             "answer": false
         },
         {
-            "question": "Le suffrage universel a été introduit simultanément dans tous les pays.",
-            "answer": false
-        },
+             "question": "Les expériences de Pasteur sur la fermentation ont prouvé l'existence des microbes.",
+            "answer": true
+         }
+    ],
+    "Expérience ratée": [
         {
-            "question": "La Guerre de Cent Ans a duré exactement 100 ans.",
+             "question": "L'expérience de la fusion froide a prouvé qu'il était possible d'obtenir de l'énergie à partir d'une réaction nucléaire à température ambiante.",
              "answer": false
          },
-        {
-           "question": "La Déclaration d'indépendance américaine a été signée en 1776.",
-           "answer": true
-        },
-        {
-          "question": "La Renaissance a commencé en Italie au 15ème siècle.",
-           "answer": true
-        },
-        {
-            "question": "La Révolution française a été menée par le roi.",
-            "answer":false
-        }
-   ],
-   "Bonus": [
-        {
-            "question": "Les rayons X ont été découverts par hasard.",
-             "answer": true
-         },
-        {
-            "question": "Le Coca-Cola contenait de la cocaïne à ses débuts.",
-            "answer": true
-        },
-        {
-           "question": "Le caoutchouc vulcanisé a été découvert par Charles Goodyear par accident.",
-           "answer": true
-         },
-        {
-            "question": "Les sachets de thé ont été inventés par un vendeur de thé.",
-            "answer": true
-        },
-       {
-            "question":"La crème glacée a été découverte en Chine et rapportée par Marco Polo en Europe.",
+         {
+            "question": "L'expérience de la colonie d'Eden a permis de créer un environnement parfait.",
             "answer": false
-        },
-       {
-         "question": "Le pétrole a été utilisé comme lubrifiant dans l'Antiquité.",
-          "answer": false
+         },
+         {
+            "question": "La création du Crystal Palace a été un exemple de conception ratée qui a mené à sa destruction.",
+             "answer": false
          }
-  ],
-  "Expérience réussie": [
-        {
-            "question": "La théorie de la relativité d'Einstein a été confirmée par des expériences.",
-            "answer": true
-       },
-       {
-            "question":"La construction du Canal de Panama a été une entreprise réussie.",
-           "answer":true
-       },
-        {
-          "question": "La conquête du pôle Sud par Amundsen a été un succès.",
-           "answer":true
-        },
-        {
-            "question": "L'invention du vaccin contre la polio a éradiqué la maladie.",
-            "answer": false
-         },
-        {
-          "question": "Le projet Manhattan a permis la création d'armes nucléaires.",
-            "answer": true
-       },
-      {
-           "question":"La création d'Internet est un succès de l'ingénierie.",
-           "answer": true
-      }
- ],
- "Expérience ratée": [
-        {
-            "question": "La construction du Titanic a été un modèle de sécurité.",
-            "answer": false
-        },
-        {
-            "question": "Le crash du Hindenburg est un exemple d'échec technologique.",
-             "answer":true
-         },
-        {
-           "question": "Le projet du Concorde a été un échec commercial.",
-            "answer": true
-       },
-        {
-            "question": "L'expérience de la grenouille galvanisée de Galvani a été une réussite.",
-            "answer": false
-         },
-        {
-           "question":"Le programme de désescalade de guerre par l'ONU a été un succès",
-            "answer": false
-        },
-      {
-            "question":"La prohibition aux Etats-Unis a été une réussite.",
-            "answer": false
-      }
     ]
 }
