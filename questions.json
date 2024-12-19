@@ -1,178 +1,162 @@
 {
     "Erreurs historiques en science": [
-        {
-            "question": "Quel scientifique a été brûlé sur le bûcher pour ses idées héliocentriques?",
+       {
+            "question": "L'idée que la Terre était plate était une théorie scientifique largement acceptée au Moyen Âge.",
             "answer": false
         },
-        {
-            "question": "La théorie de la génération spontanée a été réfutée par Louis Pasteur.",
+         {
+            "question": "On croyait autrefois que les maladies étaient causées par des mauvais esprits.",
             "answer": true
         },
         {
-            "question": "L'éther luminifère était une théorie acceptée avant la relativité d'Einstein.",
-            "answer": true
-        },
-        {
-            "question": "La Terre est plate selon les scientifiques du Moyen Âge.",
-            "answer": false
-        },
-        {
-            "question": "L'alchimie est considérée comme une science exacte.",
+            "question": "L'alchimie était une science qui visait uniquement à transformer le plomb en or.",
             "answer": false
         }
     ],
     "Inventions accidentelles": [
         {
-            "question": "Le micro-ondes a été inventé par accident.",
+            "question": "Les Post-it ont été inventés par accident lorsqu'un scientifique a essayé de créer un adhésif puissant.",
             "answer": true
         },
         {
-            "question": "Le Coca-Cola a été inventé comme un médicament.",
+            "question": "Le Nutella a été inventé pour remplacer le chocolat, rare pendant la Seconde Guerre mondiale.",
             "answer": true
         },
         {
-            "question": "Le Velcro a été inventé après l'observation des crochets des bardanes.",
+            "question": "Le Velcro a été découvert en observant des bardanes collées à la fourrure d'un chien.",
             "answer": true
         },
         {
-            "question": "Le Teflon a été découvert par accident lors d'une expérience sur les gaz réfrigérants.",
+            "question": "La pénicilline a été découverte accidentellement par Alexander Fleming.",
             "answer": true
         },
         {
-            "question": "Le Post-it a été inventé pour remplacer les trombones.",
-            "answer": false
+            "question": "Le WD-40 est né d'un échec industriel et était initialement destiné à être une peinture en aérosol pour voitures.",
+            "answer": true
+        },
+        {
+            "question": "La Tarte Tatin a été créée par accident lorsque deux sœurs ont laissé leur tarte aux pommes trop longtemps au four.",
+            "answer": true
+        },
+        {
+            "question": "Le four à micro-ondes a été inventé lorsqu'un ingénieur a accidentellement fait fondre une barre de chocolat en travaillant sur la technologie radar.",
+            "answer": true
+        },
+        {
+            "question": "Rapid’Asparagus est un produit de consommation qui a échoué commercialement malgré une idée innovante.",
+            "answer": true
+        },
+        {
+            "question": "Le Téflon, une substance glissante et durable utilisée pour les ustensiles de cuisine antiadhésifs, a été accidentellement découvert lors de la création d'un réfrigérant.",
+            "answer": true
+        },
+        {
+            "question": "Wilhelm Röntgen a découvert les rayons X en observant une étrange lueur sur une plaque photographique.",
+            "answer": true
+        },
+        {
+            "question": "La sérendipité décrit la découverte de quelque chose d'utile en cherchant autre chose.",
+            "answer": true
+        },
+        {
+            "question": "Le pansement en plastique, largement utilisé dans les hôpitaux, a été inventé après qu'un médecin a vu la peau d'un patient guérir plus rapidement avec du plastique.",
+            "answer": true
+        },
+        {
+            "question": "Le Roquefort a été inventé après qu'un morceau de lait caillé ait été laissé dans une grotte et soit devenu moisi.",
+            "answer": true
+        },
+        {
+            "question": "Le jus d'orange a failli provoquer une catastrophe lorsqu'il a été accidentellement mélangé à une substance explosive.",
+            "answer": true
+        },
+         {
+            "question": "La catastrophe de Fukushima a été causée par une série d'erreurs humaines et de défaillances techniques.",
+            "answer": true
         }
     ],
     "Échecs dans l'espace": [
-        {
-            "question": "La mission Apollo 13 a été un succès complet.",
+         {
+            "question": "La mission Apollo 1 a été un succès total dès le début.",
             "answer": false
         },
         {
-            "question": "La navette spatiale Challenger a explosé en 1986.",
-            "answer": true
+            "question": "La perte de la navette Challenger a été un accident tragique du programme spatial américain.",
+           "answer": true
         },
-        {
-            "question": "La sonde Mars Climate Orbiter s'est écrasée à cause d'une erreur de conversion d'unités.",
-            "answer": true
-        },
-        {
-            "question": "La mission Beagle 2 a réussi à atterrir sur Mars.",
-            "answer": false
-        },
-        {
-            "question": "La mission Luna 15 a été un succès pour l'Union soviétique.",
+         {
+            "question": "Le satellite russe Sputnik 1 a été mis en orbite sans aucun problème.",
             "answer": false
         }
     ],
     "Prédictions scientifiques erronées": [
         {
-            "question": "Thomas Edison a prédit que l'électricité serait trop dangereuse pour être utilisée dans les maisons.",
+            "question":"Les scientifiques pensaient que voler serait impossible pour les humains.",
+            "answer": true
+        },
+         {
+            "question":"L'internet était considéré comme une technologie qui ne serait pas largement adoptée par la population.",
             "answer": false
         },
         {
-            "question": "Lord Kelvin a déclaré qu'il n'y avait rien de nouveau à découvrir en physique.",
-            "answer": true
-        },
-        {
-            "question": "IBM a prédit qu'il n'y aurait jamais besoin de plus de cinq ordinateurs dans le monde.",
-            "answer": true
-        },
-        {
-            "question": "La télévision en couleur ne sera jamais populaire, selon certains experts.",
-            "answer": true
-        },
-        {
-            "question": "Le téléphone n'a aucune valeur commerciale, selon Western Union.",
-            "answer": true
-        }
+            "question":"On pensait que le développement des ordinateurs n'aurait aucun impact significatif sur la société.",
+            "answer": false
+         }
     ],
     "Société": [
-        {
-            "question": "La Déclaration des droits de l'homme et du citoyen a été adoptée en 1789.",
+         {
+            "question": "Le Code d'Hammurabi est l'un des plus anciens codes de lois écrits.",
             "answer": true
         },
         {
-            "question": "La première guerre mondiale a commencé en 1914.",
-            "answer": true
-        },
-        {
-            "question": "La révolution industrielle a commencé au 19ème siècle.",
+            "question": "Les Jeux Olympiques antiques avaient un but uniquement sportif.",
             "answer": false
         },
         {
-            "question": "L'ONU a été fondée après la seconde guerre mondiale.",
-            "answer": true
-        },
-        {
-            "question": "Le mur de Berlin est tombé en 1989.",
-            "answer": true
-        }
+           "question": "La construction des pyramides d'Égypte a été réalisée sans aucune forme d'ingénierie.",
+           "answer": false
+         }
     ],
     "Bonus": [
-        {
-            "question": "La pénicilline a été découverte par accident.",
+         {
+           "question": "Le chewing-gum a été inventé par un fabricant de pneus.",
             "answer": true
         },
         {
-            "question": "Le Velcro a été inventé par un astronaute.",
-            "answer": false
-        },
-        {
-            "question": "Le plastique a été découvert par accident.",
+            "question": "Le popsicle a été inventé par un enfant de 11 ans.",
             "answer": true
-        },
-        {
-            "question": "Le four à micro-ondes a été inventé par un ingénieur de la NASA.",
-            "answer": false
-        },
-        {
-            "question": "Le Coca-Cola a été inventé par un pharmacien.",
-            "answer": true
+         },
+          {
+            "question": "Le colorant mauve a été découvert par accident en essayant de trouver un médicament contre le paludisme.",
+             "answer": true
         }
     ],
     "Expérience réussie": [
-        {
-            "question": "La mission Apollo 11 a réussi à atterrir sur la Lune.",
+         {
+            "question":"L'expérience de Rutherford sur la feuille d'or a mené à la découverte du noyau atomique.",
             "answer": true
-        },
+         },
         {
-            "question": "Le vaccin contre la variole a été un succès.",
-            "answer": true
-        },
-        {
-            "question": "La découverte de l'ADN a été une expérience réussie.",
-            "answer": true
-        },
-        {
-            "question": "La mission Mars Rover a été un échec.",
+            "question":"La découverte de la structure de l'ADN par Watson et Crick a été un échec.",
             "answer": false
         },
         {
-            "question": "La première greffe de cœur a été un succès.",
+             "question": "Les expériences de Pasteur sur la fermentation ont prouvé l'existence des microbes.",
             "answer": true
-        }
+         }
     ],
     "Expérience ratée": [
         {
-            "question": "La mission Apollo 13 a été un succès complet.",
+             "question": "L'expérience de la fusion froide a prouvé qu'il était possible d'obtenir de l'énergie à partir d'une réaction nucléaire à température ambiante.",
+             "answer": false
+         },
+         {
+            "question": "L'expérience de la colonie d'Eden a permis de créer un environnement parfait.",
             "answer": false
-        },
-        {
-            "question": "La navette spatiale Challenger a explosé en 1986.",
-            "answer": true
-        },
-        {
-            "question": "La sonde Mars Climate Orbiter s'est écrasée à cause d'une erreur de conversion d'unités.",
-            "answer": true
-        },
-        {
-            "question": "La mission Beagle 2 a réussi à atterrir sur Mars.",
-            "answer": false
-        },
-        {
-            "question": "La mission Luna 15 a été un succès pour l'Union soviétique.",
-            "answer": false
-        }
+         },
+         {
+            "question": "La création du Crystal Palace a été un exemple de conception ratée qui a mené à sa destruction.",
+             "answer": false
+         }
     ]
 }
