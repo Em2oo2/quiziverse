@@ -8,17 +8,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div id="game-board" class="board"></div>
+    <section id="rules">
+        <h2>Règles du jeu</h2>
+        <p>Bienvenue à QuiziVerse! Voici les règles du jeu:</p>
+        <ul>
+            <li>Répondez à chaque question dans le temps imparti.</li>
+            <li>Chaque bonne réponse vous rapporte des points.</li>
+            <li>Essayez d'obtenir le score le plus élevé possible!</li>
+        </ul>
+    </section>
+    <div class="button-container">
+        <a href="players.html" class="start-button">Commencer le jeu</a>
+        <a href="rules.html" class="rules-button">Voir les règles</a>
     </div>
-    <div id="score-board">
-        <div class="controls">
-            <div id="dice-value">0</div>
-            <button id="roll-dice"><i class="fas fa-dice"></i></button>
-            <div id="player-turn">C'est au tour de...</div>
-        </div>
+    <div class="landscape-prompt" id="landscape-prompt">
+        Veuillez passer en mode paysage pour une meilleure expérience.
     </div>
-    <script src="questions.js"></script>
-    <script src="game.js"></script>
+    <script>
+        function checkOrientation() {
+            const prompt = document.getElementById('landscape-prompt');
+            if (window.innerHeight > window.innerWidth) {
+                prompt.style.display = 'flex';
+            } else {
+                prompt.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('load', checkOrientation);
+    </script>
 </body>
 </html>
