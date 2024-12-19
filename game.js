@@ -293,7 +293,7 @@ function updateScore(playerIndex) {
             "Inventions accidentelles": "Accidental Inventions.svg",
             "Échecs dans l'espace": "Space Failures.svg",
             "Prédictions scientifiques erronées": "Inaccurate Scientific Predictions.svg",
-            "Société": "society.svg",
+            "Société": "Society.svg",
             "Bonus": "Bonus.svg",
             "Expérience réussie": "fa-thumbs-up",
             "Expérience ratée": "failure.svg"
