@@ -35,10 +35,10 @@ body {
     padding-top: 100%;
     position: relative;
     background-color: #ddd;
-    border: 1px solid #ccc;
     text-align: center;
     font-size: 0.9em;
     border-radius: 120px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
 }
 
 .board-cell::after {
@@ -70,7 +70,7 @@ body {
 }
 
 .board-cell[data-category="Société"] {
-    background-color: #ffccff;
+    background-color: #8A2BE2;
 }
 
 .board-cell[data-category="Bonus"] {
@@ -191,11 +191,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #f9f9f9; /* Add background color */
+    background-color: #ffffff; /* Change background color to white */
     padding: 20px; /* Add padding */
-    border-radius: 50px; /* Add border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    border-radius: 20px; /* Increase border radius */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhance shadow */
     overflow: hidden; /* Prevent overflow */
+    border: 1px solid #ddd; /* Add border */
 }
 
 #score-board .controls {
@@ -205,8 +206,8 @@ body {
 #score-board .player-token-score {
     margin-right: 10px;
     display: inline-block;
-    width: 20px; /* Increase size */
-    height: 20px; /* Increase size */
+    width: 25px; /* Increase size */
+    height: 25px; /* Increase size */
     border-radius: 50%;
     border: 2px solid #ccc; /* Add border */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add shadow */
@@ -221,6 +222,15 @@ body {
     color: #333; /* Change text color */
     flex-wrap: wrap; /* Allow wrapping */
     align-items: flex-start; /* Align items to the start */
+    width: 100%; /* Ensure full width */
+    padding: 10px; /* Add padding */
+    background-color: #f9f9f9; /* Add background color */
+    border-radius: 10px; /* Add border radius */
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+#score-board .player-score:hover {
+    background-color: #f1f1f1; /* Change background color on hover */
 }
 
 .question-popup {
@@ -319,7 +329,7 @@ body {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #007FFF; /* Background color */
+    background-color: #000000; /* Background color */
     color: white; /* Text color */
     padding: 15px 20px; /* Padding */
     border-radius: 10px; /* Border radius */
