@@ -8,73 +8,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div id="rules" class="page-container">
-        <h1 class="page-title">QUIZIVERSE</h1>
-        <h2 class="page-subtitle">I – MATÉRIEL</h2>
-        <ul class="page-list">
-            <li>1 plateau de jeu digital représentant le Pavillon des Sciences, avec des cases correspondant aux différentes expositions.</li>
-            <li>6 pions uniques parmi lesquels chaque joueur peut choisir.</li>
-            <li>1 dé à 6 faces (lancé virtuellement sur la plateforme).</li>
-            <li>1 pile de cartes « Questions d’exposition », comprenant des questions variées classées par thèmes et mélangées automatiquement.</li>
+    <div class="toc-container">
+        <h2 class="toc-title">Table des matières</h2>
+        <ul class="toc-list">
+            <li><a href="#section-materiel">I – MATÉRIEL</a></li>
+            <li><a href="#section-but-du-jeu">II – BUT DU JEU</a></li>
+            <li><a href="#section-preparation-du-jeu">III – PRÉPARATION DU JEU</a></li>
+            <li><a href="#section-deroulement-du-jeu">IV – DÉROULEMENT DU JEU</a></li>
+            <li><a href="#section-fin-du-jeu">V – FIN DU JEU</a></li>
+            <li><a href="#section-conseils">VI – CONSEILS POUR LES JOUEURS</a></li>
+            <li><a href="#section-vainqueur">VII – LE VAINQUEUR</a></li>
         </ul>
-        <h2 class="page-subtitle">II – BUT DU JEU</h2>
-        <p class="page-paragraph">Le but de QuiziVerse est de visiter toutes les expositions du Pavillon des Sciences, répondre correctement aux questions, et retourner à l’entrée en premier pour gagner.</p>
-        <h2 class="page-subtitle">III – PRÉPARATION DU JEU</h2>
-        <ol class="page-list">
-            <li>Chaque joueur choisit un pion parmi ceux proposés sur la plateforme.</li>
-            <li>Les cartes « Questions d’exposition » sont automatiquement mélangées et classées par thème.</li>
-            <li>Le premier joueur est déterminé aléatoirement par la plateforme.</li>
-        </ol>
-        <h2 class="page-subtitle">IV – DÉROULEMENT DU JEU</h2>
-        <p class="page-paragraph">Le jeu se déroule en tours successifs, dans le sens des aiguilles d’une montre. À chaque tour :</p>
-        <ol class="page-list">
-            <li><strong>Lancez le dé :</strong> Cliquez sur le bouton pour lancer le dé. Votre pion avancera automatiquement du nombre de cases indiquées.</li>
-            <li><strong>Suivez les instructions de la case sur laquelle vous arrivez.</strong> Les types de cases sont :</li>
-            <ul class="page-list">
-                <li><strong>Les cases exposition :</strong>
-                    <ul class="page-list">
-                        <li>Lorsque vous arrivez sur une case exposition, une carte correspondant au thème de la case s’affiche automatiquement.</li>
-                        <li>Bonne réponse : L’exposition est marquée comme complétée dans votre tableau de progression (et la case se met à clignoter).</li>
-                        <li>Mauvaise réponse : Vous restez sur la case et rejouez au prochain tour pour tenter une nouvelle réponse (et la case se met à clignoter en ROUGE).</li>
-                    </ul>
-                </li>
-                <li><strong>Les cases Bonus :</strong>
-                    <ul class="page-list">
-                        <li>Lorsque vous arrivez sur une Case Bonus, vous obtiendrez la chance de répondre à une question bonus sur les anciennes expositions du pavillon des sciences : si la réponse est correcte, vous pourrez lancer encore une fois le dé afin de jouer un nouveau tour.</li>
-                    </ul>
-                </li>
-                <li><strong>Les cases Événement :</strong>
-                    <ul class="page-list">
-                        <li>Ces cases contiennent des événements aléatoires qui influencent le jeu :</li>
-                        <li>« Expérience réussie ! » : Un point vous est attribué, vous pouvez relancer le dé.</li>
-                        <li>« Expérience ratée... » : Perdez un point et attendez le prochain tour.</li>
-                    </ul>
-                </li>
-                <li><strong>La case d’entrée :</strong>
-                    <ul class="page-list">
-                        <li>Une fois que toutes vos expositions sont validées, revenez sur cette case pour déclarer votre victoire.</li>
-                    </ul>
-                </li>
-            </ul>
-            <li><strong>Gestion des cartes :</strong> Les cartes jouées sont automatiquement remises dans le système.</li>
-        </ol>
-        <h2 class="page-subtitle">V – FIN DU JEU</h2>
-        <p class="page-paragraph">Le jeu se termine lorsqu’un joueur a complété le plus d’expositions possible et est revenu à la case d’entrée :</p>
-        <ul class="page-list">
-            <li>Si plusieurs joueurs atteignent l’entrée au même tour, celui avec le plus grand nombre de bonnes réponses supplémentaires gagne.</li>
-            <li>En cas d’égalité parfaite, un duel de connaissances sera organisé : chaque joueur répond à une question supplémentaire. Le premier à répondre correctement l’emporte.</li>
-        </ul>
-        <h2 class="page-subtitle">VI – CONSEILS POUR LES JOUEURS</h2>
-        <ul class="page-list">
-            <li>Planifiez vos déplacements pour maximiser vos chances de visiter toutes les expositions rapidement.</li>
-            <li>Utilisez les cases « Atelier pratique » pour valider des expositions stratégiques : choisissez les thèmes qui vous feront gagner des points.</li>
-            <li>Mémorisez les questions que vous avez déjà vues pour améliorer vos réponses futures.</li>
-        </ul>
-        <h2 class="page-subtitle">VII – LE VAINQUEUR</h2>
-        <p class="page-paragraph">Le vainqueur est proclamé Grand Explorateur du Pavillon des Sciences et est encouragé à partager sa passion des sciences avec les autres joueurs !</p>
     </div>
-    <div class="page-button-container">
-        <a href="players.html" class="page-button">Commencer le jeu</a>
+    <div class="page-container">
+        <div id="rules" class="content-container">
+            <h1 class="page-title">QUIZIVERSE</h1>
+            <h2 id="section-materiel" class="page-subtitle">I – MATÉRIEL</h2>
+            <ul class="page-list">
+                <li>1 plateau de jeu digital représentant le Pavillon des Sciences, avec des cases correspondant aux différentes expositions.</li>
+                <li>6 pions uniques parmi lesquels chaque joueur peut choisir.</li>
+                <li>1 dé à 6 faces (lancé virtuellement sur la plateforme).</li>
+                <li>1 pile de cartes « Questions d’exposition », comprenant des questions variées classées par thèmes et mélangées automatiquement.</li>
+            </ul>
+            <h2 id="section-but-du-jeu" class="page-subtitle">II – BUT DU JEU</h2>
+            <p class="page-paragraph">Le but de QuiziVerse est de visiter toutes les expositions du Pavillon des Sciences, répondre correctement aux questions, et retourner à l’entrée en premier pour gagner.</p>
+            <h2 id="section-preparation-du-jeu" class="page-subtitle">III – PRÉPARATION DU JEU</h2>
+            <ol class="page-list">
+                <li>Chaque joueur choisit un pion parmi ceux proposés sur la plateforme.</li>
+                <li>Les cartes « Questions d’exposition » sont automatiquement mélangées et classées par thème.</li>
+                <li>Le premier joueur est déterminé aléatoirement par la plateforme.</li>
+            </ol>
+            <h2 id="section-deroulement-du-jeu" class="page-subtitle">IV – DÉROULEMENT DU JEU</h2>
+            <p class="page-paragraph">Le jeu se déroule en tours successifs, dans le sens des aiguilles d’une montre. À chaque tour :</p>
+            <ol class="page-list">
+                <li><strong>Lancez le dé :</strong> Cliquez sur le bouton pour lancer le dé. Votre pion avancera automatiquement du nombre de cases indiquées.</li>
+                <li><strong>Suivez les instructions de la case sur laquelle vous arrivez.</strong> Les types de cases sont :</li>
+                <ul class="page-list">
+                    <li><strong>Les cases exposition :</strong>
+                        <ul class="page-list">
+                            <li>Lorsque vous arrivez sur une case exposition, une carte correspondant au thème de la case s’affiche automatiquement.</li>
+                            <li>Bonne réponse : L’exposition est marquée comme complétée dans votre tableau de progression (et la case se met à clignoter).</li>
+                            <li>Mauvaise réponse : Vous restez sur la case et rejouez au prochain tour pour tenter une nouvelle réponse (et la case se met à clignoter en ROUGE).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Les cases Bonus :</strong>
+                        <ul class="page-list">
+                            <li>Lorsque vous arrivez sur une Case Bonus, vous obtiendrez la chance de répondre à une question bonus sur les anciennes expositions du pavillon des sciences : si la réponse est correcte, vous pourrez lancer encore une fois le dé afin de jouer un nouveau tour.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Les cases Événement :</strong>
+                        <ul class="page-list">
+                            <li>Ces cases contiennent des événements aléatoires qui influencent le jeu :</li>
+                            <li>« Expérience réussie ! » : Un point vous est attribué, vous pouvez relancer le dé.</li>
+                            <li>« Expérience ratée... » : Perdez un point et attendez le prochain tour.</li>
+                        </ul>
+                    </li>
+                    <li><strong>La case d’entrée :</strong>
+                        <ul class="page-list">
+                            <li>Une fois que toutes vos expositions sont validées, revenez sur cette case pour déclarer votre victoire.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <li><strong>Gestion des cartes :</strong> Les cartes jouées sont automatiquement remises dans le système.</li>
+            </ol>
+            <h2 id="section-fin-du-jeu" class="page-subtitle">V – FIN DU JEU</h2>
+            <p class="page-paragraph">Le jeu se termine lorsqu’un joueur a complété le plus d’expositions possible et est revenu à la case d’entrée :</p>
+            <ul class="page-list">
+                <li>Si plusieurs joueurs atteignent l’entrée au même tour, celui avec le plus grand nombre de bonnes réponses supplémentaires gagne.</li>
+                <li>En cas d’égalité parfaite, un duel de connaissances sera organisé : chaque joueur répond à une question supplémentaire. Le premier à répondre correctement l’emporte.</li>
+            </ul>
+            <h2 id="section-conseils" class="page-subtitle">VI – CONSEILS POUR LES JOUEURS</h2>
+            <ul class="page-list">
+                <li>Planifiez vos déplacements pour maximiser vos chances de visiter toutes les expositions rapidement.</li>
+                <li>Utilisez les cases « Atelier pratique » pour valider des expositions stratégiques : choisissez les thèmes qui vous feront gagner des points.</li>
+                <li>Mémorisez les questions que vous avez déjà vues pour améliorer vos réponses futures.</li>
+            </ul>
+            <h2 id="section-vainqueur" class="page-subtitle">VII – LE VAINQUEUR</h2>
+            <p class="page-paragraph">Le vainqueur est proclamé Grand Explorateur du Pavillon des Sciences et est encouragé à partager sa passion des sciences avec les autres joueurs !</p>
+        </div>
+        <div class="page-button-container">
+            <a href="players.html" class="page-button">Commencer le jeu</a>
+        </div>
     </div>
 </body>
 </html>
