@@ -185,20 +185,16 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
     const currentPlayer = players[playerIndex];
     const cell = document.querySelectorAll('.board-cell')[currentPlayer.position];
 
+    // Debugging log
+    console.log(`Player Answer: ${playerAnswer}, Correct Answer: ${correctAnswer}`);
+
     if (playerAnswer === correctAnswer) {
         cell.classList.add('correct-answer');
         setTimeout(() => cell.classList.remove('correct-answer'), 1000);
 
-        if (!currentPlayer.cards.includes(cell.dataset.category) || cell.dataset.category === "Bonus") {
-            currentPlayer.cards.push(cell.dataset.category);
-            updateScore(playerIndex);
-
-            // Check for win condition
-            if (currentPlayer.cards.length === categories.length - 1) { // Exclude "Bonus" category
-                showCustomPopup(`${currentPlayer.name} a gagné en collectant toutes les cartes !`, checkForWinner);
-                return;
-            }
-        }
+        // Allow multiple cards of the same category
+        currentPlayer.cards.push(cell.dataset.category);
+        updateScore(playerIndex);
 
         if (isBonus) {
             if (!currentPlayer.cards.includes("Bonus")) {
