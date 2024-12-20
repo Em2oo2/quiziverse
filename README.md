@@ -39,7 +39,7 @@ QuiziVerse est un jeu de plateau éducatif et amusant qui met à l'épreuve vos 
 
 1. Clonez le dépôt sur votre machine locale :
    ```bash
-   git clone https://github.com/votre-utilisateur/quiziverse.git
+   git clone https://github.com/Em2oo2/quiziverse.git
    ```
 
 2. Ouvrez le fichier `game.html` dans votre navigateur pour commencer à jouer.
