@@ -31,10 +31,11 @@
     padding: var(--spacing-md);
     min-height: calc(100vh - 40px);
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Change to column for better adaptability */
     align-items: center;
     justify-content: center;
     background: linear-gradient(157.61deg, #E51C79 11.89%, #FFBF00 57.37%, #A4C639 80.11%, #6ACE81 91.49%, #30D5C8 102.86%);
+    background-size: cover; /* Ensure the gradient covers the entire background */
     line-height: 1.6;
   }
   
@@ -56,6 +57,12 @@
     width: 100%;
     margin: var(--spacing-md);
     backdrop-filter: blur(10px);
+  }
+
+  #rules {
+    position: absolute; /* Positioning */
+    right: 0; /* Align to the right */
+    top: 0; /* Align to the top */
   }
   
   /* Typography */
