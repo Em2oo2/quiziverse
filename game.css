@@ -7,7 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 40px);
-    background: linear-gradient(135deg, #E51C79, #FFBF00, #007FFF, #A4C639, #ffccff, #ffff99, #32CD32, #FF6347); /* Gradient background */
+    background: linear-gradient(157.61deg, #E51C79 11.89%, #FFBF00 57.37%, #A4C639 80.11%, #6ACE81 91.49%, #30D5C8 102.86%);
 }
 
 .container {
@@ -26,7 +26,7 @@ body {
     width: 80%;
     background-color: white; /* Add white background */
     padding: 20px; /* Add padding */
-    border-radius: 10px; /* Add border radius */
+    border-radius: 50px; /* Add border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
@@ -38,7 +38,7 @@ body {
     border: 1px solid #ccc;
     text-align: center;
     font-size: 0.9em;
-    border-radius: 15px;
+    border-radius: 120px;
 }
 
 .board-cell::after {
@@ -193,7 +193,7 @@ body {
     align-items: flex-start;
     background-color: #f9f9f9; /* Add background color */
     padding: 20px; /* Add padding */
-    border-radius: 10px; /* Add border radius */
+    border-radius: 50px; /* Add border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
     overflow: hidden; /* Prevent overflow */
 }

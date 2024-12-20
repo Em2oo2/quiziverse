@@ -34,10 +34,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, 
-      #E51C79, #FFBF00, #007FFF, #A4C639, 
-      #ffccff, #ffff99, #32CD32, #FF6347
-    );
+    background: linear-gradient(157.61deg, #E51C79 11.89%, #FFBF00 57.37%, #A4C639 80.11%, #6ACE81 91.49%, #30D5C8 102.86%);
     line-height: 1.6;
   }
   
