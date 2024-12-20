@@ -1,16 +1,24 @@
 {
     "Erreurs historiques en science": [
-       {
+        {
             "question": "L'idée que la Terre était plate était une théorie scientifique largement acceptée au Moyen Âge.",
             "answer": false
         },
-         {
+        {
             "question": "On croyait autrefois que les maladies étaient causées par des mauvais esprits.",
             "answer": true
         },
         {
             "question": "L'alchimie était une science qui visait uniquement à transformer le plomb en or.",
             "answer": false
+        },
+        {
+            "question": "La théorie du phlogistique était une explication correcte de la combustion.",
+            "answer": false
+        },
+        {
+            "question": "La théorie des humeurs était la base de la médecine pendant des siècles.",
+            "answer": true
         }
     ],
     "Inventions accidentelles": [
@@ -43,7 +51,7 @@
             "answer": true
         },
         {
-            "question": "Rapid’Asparagus est un produit de consommation qui a échoué commercialement malgré une idée innovante.",
+            "question": "Rapid'Asparagus est un produit de consommation qui a échoué commercialement malgré une idée innovante.",
             "answer": true
         },
         {
@@ -70,41 +78,65 @@
             "question": "Le jus d'orange a failli provoquer une catastrophe lorsqu'il a été accidentellement mélangé à une substance explosive.",
             "answer": true
         },
-         {
+        {
             "question": "La catastrophe de Fukushima a été causée par une série d'erreurs humaines et de défaillances techniques.",
+            "answer": true
+        },
+        {
+            "question": "Le Coca-Cola a été initialement créé comme un médicament contre les maux de tête.",
+            "answer": true
+        },
+        {
+            "question": "Les chips ont été inventées par un chef agacé par un client qui se plaignait que ses pommes de terre n'étaient pas assez fines.",
             "answer": true
         }
     ],
     "Échecs dans l'espace": [
-         {
+        {
             "question": "La mission Apollo 1 a été un succès total dès le début.",
             "answer": false
         },
         {
             "question": "La perte de la navette Challenger a été un accident tragique du programme spatial américain.",
-           "answer": true
+            "answer": true
         },
-         {
+        {
             "question": "Le satellite russe Sputnik 1 a été mis en orbite sans aucun problème.",
             "answer": false
+        },
+        {
+            "question": "La sonde Mars Climate Orbiter s'est écrasée à cause d'une confusion entre unités métriques et impériales.",
+            "answer": true
+        },
+        {
+            "question": "Le télescope spatial Hubble avait initialement un défaut dans son miroir principal qui le rendait inefficace.",
+            "answer": true
         }
     ],
     "Prédictions scientifiques erronées": [
         {
-            "question":"Les scientifiques pensaient que voler serait impossible pour les humains.",
+            "question": "Les scientifiques pensaient que voler serait impossible pour les humains.",
             "answer": true
         },
-         {
-            "question":"L'internet était considéré comme une technologie qui ne serait pas largement adoptée par la population.",
+        {
+            "question": "L'internet était considéré comme une technologie qui ne serait pas largement adoptée par la population.",
             "answer": false
         },
         {
-            "question":"On pensait que le développement des ordinateurs n'aurait aucun impact significatif sur la société.",
+            "question": "On pensait que le développement des ordinateurs n'aurait aucun impact significatif sur la société.",
             "answer": false
-         }
+        },
+        {
+            "question": "Lord Kelvin a déclaré que les rayons X étaient probablement une canular.",
+            "answer": true
+        },
+        {
+            "question": "Einstein a initialement rejeté certaines implications de la mécanique quantique.",
+            "answer": true
+        }
     ],
     "Société": [
-         {
+        {
             "question": "Le Code d'Hammurabi est l'un des plus anciens codes de lois écrits.",
             "answer": true
         },
@@ -113,50 +145,66 @@
             "answer": false
         },
         {
-           "question": "La construction des pyramides d'Égypte a été réalisée sans aucune forme d'ingénierie.",
-           "answer": false
-         }
+            "question": "La construction des pyramides d'Égypte a été réalisée sans aucune forme d'ingénierie.",
+            "answer": false
+        }
     ],
     "Bonus": [
-         {
-           "question": "Le chewing-gum a été inventé par un fabricant de pneus.",
+        {
+            "question": "Le chewing-gum a été inventé par un fabricant de pneus.",
             "answer": true
         },
         {
             "question": "Le popsicle a été inventé par un enfant de 11 ans.",
             "answer": true
-         },
-          {
+        },
+        {
             "question": "Le colorant mauve a été découvert par accident en essayant de trouver un médicament contre le paludisme.",
-             "answer": true
+            "answer": true
         }
     ],
     "Expérience réussie": [
-         {
-            "question":"L'expérience de Rutherford sur la feuille d'or a mené à la découverte du noyau atomique.",
-            "answer": true
-         },
         {
-            "question":"La découverte de la structure de l'ADN par Watson et Crick a été un échec.",
+            "question": "L'expérience de Rutherford sur la feuille d'or a mené à la découverte du noyau atomique.",
+            "answer": true
+        },
+        {
+            "question": "La découverte de la structure de l'ADN par Watson et Crick a été un échec.",
             "answer": false
         },
         {
-             "question": "Les expériences de Pasteur sur la fermentation ont prouvé l'existence des microbes.",
+            "question": "Les expériences de Pasteur sur la fermentation ont prouvé l'existence des microbes.",
             "answer": true
-         }
+        },
+        {
+            "question": "L'expérience de Millikan sur la charge de l'électron a permis de déterminer sa valeur avec précision.",
+            "answer": true
+        },
+        {
+            "question": "L'expérience des fentes de Young a démontré la nature ondulatoire de la lumière.",
+            "answer": true
+        }
     ],
     "Expérience ratée": [
         {
-             "question": "L'expérience de la fusion froide a prouvé qu'il était possible d'obtenir de l'énergie à partir d'une réaction nucléaire à température ambiante.",
-             "answer": false
-         },
-         {
+            "question": "L'expérience de la fusion froide a prouvé qu'il était possible d'obtenir de l'énergie à partir d'une réaction nucléaire à température ambiante.",
+            "answer": false
+        },
+        {
             "question": "L'expérience de la colonie d'Eden a permis de créer un environnement parfait.",
             "answer": false
-         },
-         {
+        },
+        {
             "question": "La création du Crystal Palace a été un exemple de conception ratée qui a mené à sa destruction.",
-             "answer": false
-         }
+            "answer": false
+        },
+        {
+            "question": "L'expérience de Michelson-Morley a échoué à détecter l'éther, menant à une révolution en physique.",
+            "answer": true
+        },
+        {
+            "question": "La tentative de créer une machine à mouvement perpétuel a toujours échoué, violant les lois de la thermodynamique.",
+            "answer": true
+        }
     ]
 }
