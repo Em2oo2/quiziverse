@@ -44,6 +44,29 @@ function createGameBoard() {
         } else {
             cell.dataset.category = categories[i % (categories.length - specialCategories.length)];
         }
+        // Add arrow to indicate direction
+        const arrow = document.createElement('div');
+        arrow.classList.add('direction-arrow');
+        if (i < 5) { // First line of the board
+            arrow.classList.add('right-arrow');
+        } else if (i === 5) { // Last cell of the first line
+            arrow.classList.add('down-arrow');
+        } else if (i >= 6 && i < 12 && (i % 2 !== 0 || (i >= 8 && i <= 10))) { // Second line of the board
+            arrow.classList.add('left-arrow');
+        } else if (i >= 12 && i < 17) { // Third line of the board
+            arrow.classList.add('right-arrow');
+        } else if (i === 17) { // Last cell of the third line
+            arrow.classList.add('down-arrow');
+        } else if (i === 18) { // First cell of the fourth line
+            arrow.classList.add('down-arrow');
+        } else if (i > 18 && i < 23) { // Fourth line of the board
+            arrow.classList.add('left-arrow');
+        } else if (i === 23) { // Last cell of the fourth line
+            arrow.classList.add('left-arrow');
+        } else if (i >= 24 && i < 30) { // Fifth line of the board
+            arrow.classList.add('right-arrow');
+        }
+        cell.appendChild(arrow);
         gameBoard.appendChild(cell);
     }
 }
@@ -137,14 +160,14 @@ function triggerQuestion(position, playerIndex) {
             showCustomPopup("Expérience ratée! Vous avez perdu une carte !", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
+                playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
         } else {
             showCustomPopup("Expérience ratée! Vous n'avez pas de carte à perdre.", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
+                playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
         }
@@ -216,7 +239,7 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
             showCustomPopup("Vous avez perdu une carte !", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
+                playerTurnIndicator.textContent = `À toi de joueur ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
             return;
