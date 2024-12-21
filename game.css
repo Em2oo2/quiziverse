@@ -26,7 +26,6 @@ textarea {
     flex: 1;
 }
 
-
 .board {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -379,6 +378,16 @@ textarea {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    .board-cell::after {
+        font-size: 1.2em; /* Reduce icon size */
+    }
+
+    .direction-arrow {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid white; /* Reduce arrow size */
+    }
+
     #roll-dice {
         font-size: 1em;
         padding: 8px 16px;
@@ -412,6 +421,16 @@ textarea {
 @media (max-width: 480px) {
     .board {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .board-cell::after {
+        font-size: 1em; /* Further reduce icon size */
+    }
+
+    .direction-arrow {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 3px solid white; /* Further reduce arrow size */
     }
 
     #roll-dice {
@@ -535,5 +554,34 @@ textarea {
 }
 
 .custom-popup button:hover {
+    background-color: #005bb5;
+}
+
+.top-left-buttons {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column; /* Display buttons in columns */
+    gap: 10px;
+}
+
+.top-left-buttons button {
+    padding: 5px; /* Make buttons smaller */
+    font-size: 1.2em; /* Adjust font size for icons */
+    background-color: #007FFF;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Make buttons circular */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 40px; /* Set fixed width */
+    height: 40px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-left-buttons button:hover {
     background-color: #005bb5;
 }
