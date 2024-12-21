@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'New Tegomin', Arial, sans-serif;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -10,13 +12,19 @@ body {
     background: linear-gradient(157.61deg, #E51C79 11.89%, #FFBF00 57.37%, #A4C639 80.11%, #6ACE81 91.49%, #30D5C8 102.86%);
 }
 
+button,
+input,
+select,
+textarea {
+    font-family: 'New Tegomin', Arial, sans-serif; /* Apply new font to form elements */
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
 }
-
 
 .board {
     display: grid;
@@ -51,6 +59,7 @@ body {
     font-weight: 900;
     font-size: 2em;
     z-index: 1; /* Ensure icons are below tokens */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add relief effect */
 }
 
 .board-cell[data-category="Erreurs historiques en science"] {
@@ -193,7 +202,7 @@ body {
     align-items: flex-start;
     background-color: #f9f9f9; /* Add background color */
     padding: 20px; /* Add padding */
-    border-radius: 50px; /* Add border radius */
+    border-radius: 30px; /* Add border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Add shadow */
     overflow: hidden; /* Prevent overflow */
     border: solid 0.1rem #000;
@@ -329,10 +338,54 @@ body {
     text-align: center; /* Center text */
 }
 
+.direction-arrow {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white; /* Change arrow color to white */
+    z-index: 3; /* Ensure arrow is above other elements */
+}
+
+.left-arrow {
+    transform: translateY(-50%) rotate(90deg); /* Rotate arrow to point left */
+    left: 5px; /* Position to the left side */
+    right: auto; /* Override right position */
+    top: 50%; /* Center vertically */
+    bottom: auto; /* Override bottom position */
+}
+
+.right-arrow {
+    transform: translateY(-50%) rotate(-90deg); /* Rotate arrow to point right */
+    left: auto; /* Override left position */
+    right: 5px; /* Position to the right side */
+    top: 50%; /* Center vertically */
+    bottom: auto; /* Override bottom position */
+}
+
+.down-arrow {
+    transform: translateX(-50%) rotate(0deg); /* Rotate arrow to point down */
+    top: auto; /* Override top position */
+    bottom: 5px; /* Position to the bottom */
+}
 
 @media (max-width: 768px) {
     .board {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .board-cell::after {
+        font-size: 1.2em; /* Reduce icon size */
+    }
+
+    .direction-arrow {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid white; /* Reduce arrow size */
     }
 
     #roll-dice {
@@ -368,6 +421,16 @@ body {
 @media (max-width: 480px) {
     .board {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .board-cell::after {
+        font-size: 1em; /* Further reduce icon size */
+    }
+
+    .direction-arrow {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 3px solid white; /* Further reduce arrow size */
     }
 
     #roll-dice {
@@ -491,5 +554,34 @@ body {
 }
 
 .custom-popup button:hover {
+    background-color: #005bb5;
+}
+
+.top-left-buttons {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column; /* Display buttons in columns */
+    gap: 10px;
+}
+
+.top-left-buttons button {
+    padding: 5px; /* Make buttons smaller */
+    font-size: 1.2em; /* Adjust font size for icons */
+    background-color: #007FFF;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Make buttons circular */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 40px; /* Set fixed width */
+    height: 40px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-left-buttons button:hover {
     background-color: #005bb5;
 }

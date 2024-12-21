@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
 /* Variables for consistent theming */
 :root {
     --primary: #007FFF;
@@ -26,7 +28,7 @@
   
   /* Base styles */
   body {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'New Tegomin', Arial, sans-serif; /* Apply new font */
     margin: 0;
     padding: var(--spacing-md);
     min-height: calc(100vh - 40px);
@@ -38,9 +40,27 @@
     background-size: cover; /* Ensure the gradient covers the entire background */
     line-height: 1.6;
   }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: 'New Tegomin', Arial, sans-serif; /* Apply new font to form elements */
+  }
   
   /* Layout containers */
-  .page-container {
+  .page-container-rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 290px; /* Match TOC width + spacing */
+    max-width: calc(100% - 290px); /* Prevent content from extending under TOC */
+    padding: var(--spacing-md);
+  }
+
+  .page-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +68,26 @@
     width: 100%;
   }
   
-  .content-container, #rules {
+  .content-container{
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px var(--shadow);
+    max-width: var(--container-width);
+    width: 100%;
+  }
+
+  .content-container-rules{
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px var(--shadow);
+    max-width: var(--container-width);
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .content-container #rules {
     background-color: rgba(255, 255, 255, 0.95);
     padding: var(--spacing-md);
     border-radius: var(--radius);
@@ -60,9 +99,13 @@
   }
 
   #rules {
-    position: absolute; /* Positioning */
-    right: 0; /* Align to the right */
-    top: 0; /* Align to the top */
+    position: relative; /* Change to relative positioning */
+    margin-left: 290px; /* Ensure it doesn't overlap with TOC */
+    max-width: calc(100% - 290px); /* Ensure it doesn't overlap with TOC */
+    width: auto; /* Adjust width */
+    margin: var(--spacing-md); /* Add margin */
+    padding: var(--spacing-md); /* Add padding */
+    font-size: var(--font-size-lg); /* Base font size */
   }
   
   /* Typography */
@@ -109,6 +152,12 @@
     margin-bottom: var(--spacing-sm);
     position: relative;
   }
+
+  .page-list li i {
+    background: linear-gradient(157.61deg, #E51C79 11.89%, #FFBF00 57.37%, #A4C639 80.11%, #6ACE81 91.49%, #30D5C8 102.86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   
   /* Form Elements */
   .form-group {
@@ -134,7 +183,7 @@
     width: 100%;
     padding: 12px var(--spacing-md);
     font-size: var(--font-size-base);
-    color: var(--text-primary);
+    color: var (--text-primary);
     background-color: var(--white);
     border: 2px solid var(--gray-300);
     border-radius: var(--radius);
@@ -220,7 +269,7 @@
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-lg);
     font-size: var(--font-size-xl);
-    color: var(--white);
+    color: var (--white);
     border: none;
     border-radius: var(--radius);
     text-decoration: none;
@@ -234,6 +283,12 @@
   .page-button,
   .start-button {
     background-color: var(--primary);
+    color: var(--white);
+  }
+
+  .page-button start-button {
+    background-color: var(--secondary);
+    color: var(--white);
   }
   
   .page-button:hover,
@@ -262,11 +317,11 @@
     padding: var(--spacing-md);
     border-radius: var(--radius);
     box-shadow: 0 4px 6px var(--shadow);
-    max-width: 250px;
-    width: 100%;
+    width: 250px;
     backdrop-filter: blur(10px);
     overflow-y: auto;
-    max-height: calc(100vh - 2 * var(--spacing-md));
+    max-height: calc(100vh - 40px);
+    z-index: 100;
   }
   
   .toc-container::-webkit-scrollbar {
@@ -286,8 +341,10 @@
   .toc-title {
     font-size: var(--font-size-xl);
     color: var(--primary);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     font-weight: 700;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--gray-200);
   }
   
   .toc-list {
@@ -297,13 +354,22 @@
   
   .toc-list li {
     margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+    border-left: 2px solid transparent;
+    transition: var(--transition);
+  }
+  
+  .toc-list li:hover {
+    border-left-color: var(--primary);
   }
   
   .toc-list a {
     text-decoration: none;
     color: var(--text-primary);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     transition: var(--transition);
+    display: block;
+    padding: 4px 0;
   }
   
   .toc-list a:hover {
@@ -325,6 +391,51 @@
   @media (max-width: 1200px) {
     .toc-container {
       width: 240px;
+    }
+
+    #rules {
+      margin-left: 260px; /* Adjust for smaller screens */
+      max-width: calc(100% - 260px); /* Adjust for smaller screens */
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .page-container {
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    .toc-container {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: var(--container-width);
+      margin: var(--spacing-md) auto;
+      max-height: none;
+    }
+  
+    .toc-list {
+      columns: 2;
+      column-gap: var(--spacing-md);
+    }
+  
+    .toc-list li {
+      break-inside: avoid;
+    }
+  
+    #rules {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: var(--container-width);
+    }
+
+    .page-container-rules {
+      margin-left: 0;
+      width: 100%;
+      max-width: var(--container-width);
+      padding: var(--spacing-md);
     }
   }
   
@@ -369,11 +480,90 @@
     .toc-list .toc-subsection {
       padding-left: var(--spacing-sm);
     }
+
+    #rules {
+      position: static; /* Reset positioning */
+      width: 100%; /* Full width */
+      margin: var(--spacing-md) auto; /* Center with margin */
+      font-size: var(--font-size-base); /* Adjust font size */
+    }
   }
   
   @media (max-width: 768px) {
+    :root {
+      --font-size-3xl: 2em;
+      --font-size-2xl: 1.75em;
+      --font-size-xl: 1.25em;
+      --font-size-lg: 1.1rem;
+      --container-width: 90%; /* Increase container width */
+    }
+    
+    .content-container, #rules {
+      margin: var(--spacing-sm);
+      padding: var(--spacing-sm);
+      max-width: var(--container-width); /* Ensure it uses the new container width */
+    }
+    
+    .button-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    textarea,
+    select {
+      padding: 10px var(--spacing-sm);
+    }
+
+    .toc-container {
+      position: static;
+      margin-bottom: var(--spacing-md);
+      width: auto;
+    }
+
+    .toc-list {
+      columns: 1;
+    }
+
+    .toc-container {
+      margin: var(--spacing-sm) auto;
+      padding: var(--spacing-sm);
+    }
+
+    .page-container-rules {
+      padding: var(--spacing-sm);
+    }
+
+    #rules {
+      margin: var(--spacing-sm) auto;
+      padding: var(--spacing-sm);
+    }
+  }
+
+  @media (max-width: 480px) {
+    :root {
+      --container-width: 95%; /* Further increase container width */
+    }
+
+    .content-container, #rules {
+      max-width: var(--container-width); /* Ensure it uses the new container width */
+    }
+
+    .toc-container {
+      padding: var(--spacing-sm); /* Smaller padding */
+    }
+
     .toc-list li {
       flex: 1 1 100%;
+    }
+
+    #rules {
+      padding: var(--spacing-sm); /* Smaller padding */
+      font-size: 0.8rem; /* Smaller font size */
     }
   }
   
