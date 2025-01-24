@@ -293,6 +293,14 @@ textarea {
     background-color: #ffcccc;
 }
 
+.question-popup.correct-answer-blink {
+    animation: correctAnswerBlink 1s ease-in-out;
+}
+
+.question-popup.incorrect-answer-blink {
+    animation: incorrectAnswerBlink 1s ease-in-out;
+}
+
 @keyframes correctAnswerAnimation {
     0% { background-color: #fff; }
     50% { background-color: #ccffcc; }
@@ -303,6 +311,16 @@ textarea {
     0% { background-color: #fff; }
     50% { background-color: #ffcccc; }
     100% { background-color: #fff; }
+}
+
+@keyframes correctAnswerBlink {
+    0%, 100% { background-color: white; }
+    50% { background-color: #ccffcc; }
+}
+
+@keyframes incorrectAnswerBlink {
+    0%, 100% { background-color: white; }
+    50% { background-color: #ffcccc; }
 }
 
 .card-images {

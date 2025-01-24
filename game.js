@@ -96,7 +96,7 @@ function setupPlayers() {
         token.style.left = '-40px'; // Position to the left of the first cell
         token.style.top = 'calc(50% - 15px)'; // Center vertically
     }
-    playerTurnIndicator.textContent = `C'est au tour de ${players[0].name}`;
+    playerTurnIndicator.textContent = `À toi de jouer ${players[0].name}`;
 }
 
 // Roll the dice and move the player
@@ -203,7 +203,14 @@ function triggerQuestion(position, playerIndex) {
 // Handle question response
 function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
     const popup = document.querySelector('.question-popup');
-    if (popup) popup.remove();
+    if (popup) {
+        if (playerAnswer === correctAnswer) {
+            popup.classList.add('correct-answer-blink');
+        } else {
+            popup.classList.add('incorrect-answer-blink');
+        }
+        setTimeout(() => popup.remove(), 1000);
+    }
 
     const currentPlayer = players[playerIndex];
     const cell = document.querySelectorAll('.board-cell')[currentPlayer.position];
@@ -248,7 +255,7 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
 
     // Update turn
     currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-    playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
+    playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
     rollDiceButton.disabled = false; // Re-enable the dice roll button
 }
 
@@ -359,7 +366,7 @@ function checkForWinner() {
                         "Inventions accidentelles": "Accidental Inventions.svg",
                         "Échecs dans l'espace": "Space Failures.svg",
                         "Prédictions scientifiques erronées": "Inaccurate Scientific Predictions.svg",
-                        "Société": "society.svg",
+                        "Société": "Society.svg",
                         "Bonus": "Bonus.svg",
                         "Expérience réussie": "fa-thumbs-up",
                         "Expérience ratée": "failure.svg"
