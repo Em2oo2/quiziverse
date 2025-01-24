@@ -2,7 +2,7 @@
 const gameBoard = document.getElementById('game-board');
 const rollDiceButton = document.getElementById('roll-dice');
 const scoreBoard = document.getElementById('score-board');
-const diceValueDisplay = document.getElementById('dice-value');
+const moveMessage = document.getElementById('move-message'); // Add reference to move message
 
 // Game Data
 const categories = [
@@ -114,13 +114,15 @@ function rollDice() {
 
     setTimeout(() => {
         const diceValue = Math.floor(Math.random() * 6) + 1;
-        diceValueDisplay.textContent = diceValue;
         rollDiceButton.classList.remove('rolling'); // Remove rolling class after animation
 
         const currentPlayer = players[currentPlayerIndex];
 
         // Hide the "Lance le dé" message
         document.getElementById('roll-dice-message').style.display = 'none';
+
+        // Update the move message
+        moveMessage.textContent = `Tu avances de ${diceValue} cases, ${currentPlayer.name}`;
 
         // Move player position
         movePlayer(currentPlayerIndex, diceValue);
@@ -275,6 +277,7 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
                 updatePlayerTurnMessage(); // Update the player turn message
                 // Show the "Lance le dé" message
                 document.getElementById('roll-dice-message').style.display = 'flex';
+                moveMessage.textContent = ''; // Clear the move message
             });
             return;
         }
@@ -286,6 +289,7 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
     updatePlayerTurnMessage(); // Update the player turn message
     // Show the "Lance le dé" message
     document.getElementById('roll-dice-message').style.display = 'flex';
+    moveMessage.textContent = ''; // Clear the move message
 }
 
 // Show custom popup
