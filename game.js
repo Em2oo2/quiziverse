@@ -1,7 +1,6 @@
 // Elements for the board game
 const gameBoard = document.getElementById('game-board');
 const rollDiceButton = document.getElementById('roll-dice');
-const playerTurnIndicator = document.getElementById('player-turn');
 const scoreBoard = document.getElementById('score-board');
 const diceValueDisplay = document.getElementById('dice-value');
 
@@ -96,33 +95,60 @@ function setupPlayers() {
         token.style.left = '-40px'; // Position to the left of the first cell
         token.style.top = 'calc(50% - 15px)'; // Center vertically
     }
-    playerTurnIndicator.textContent = `À toi de jouer ${players[0].name}`;
+    updatePlayerTurnMessage();
+}
+
+// Update the player turn message
+function updatePlayerTurnMessage() {
+    const currentPlayer = players[currentPlayerIndex];
+    document.getElementById('roll-dice-message').innerHTML = `
+        <i class="fas fa-arrow-left"></i>
+        <span>Lance le dé ${currentPlayer.name}</span>
+    `;
 }
 
 // Roll the dice and move the player
 function rollDice() {
     rollDiceButton.disabled = true; // Disable the dice roll button
-    const diceValue = Math.floor(Math.random() * 6) + 1;
-    diceValueDisplay.textContent = diceValue;
-    const currentPlayer = players[currentPlayerIndex];
+    rollDiceButton.classList.add('rolling'); // Add rolling class for animation
 
-    // Move player position
-    if (currentPlayer.position + diceValue >= 29) {
-        currentPlayer.position = 29;
-    } else {
-        currentPlayer.position = (currentPlayer.position + diceValue) % 30;
-    }
+    setTimeout(() => {
+        const diceValue = Math.floor(Math.random() * 6) + 1;
+        diceValueDisplay.textContent = diceValue;
+        rollDiceButton.classList.remove('rolling'); // Remove rolling class after animation
 
-    // Update visuals
-    updatePlayerPosition(currentPlayerIndex);
+        const currentPlayer = players[currentPlayerIndex];
 
-    // Check if the player has reached the final cell (bottom right corner)
-    if (currentPlayer.position === 29) {
-        showCustomPopup(`${currentPlayer.name} a atteint la fin du plateau! La partie est terminée.`, checkForWinner);
-        return; // End the game immediately
-    }
+        // Hide the "Lance le dé" message
+        document.getElementById('roll-dice-message').style.display = 'none';
 
-    triggerQuestion(currentPlayer.position, currentPlayerIndex);
+        // Move player position
+        movePlayer(currentPlayerIndex, diceValue);
+    }, 1000); // Adjust timeout to match the animation duration
+}
+
+// Move player token step by step
+function movePlayer(playerIndex, steps) {
+    const player = players[playerIndex];
+    let currentStep = 0;
+
+    const interval = setInterval(() => {
+        if (currentStep < steps) {
+            player.position = (player.position + 1) % 30;
+            updatePlayerPosition(playerIndex);
+            currentStep++;
+        } else {
+            clearInterval(interval);
+
+            // Check if the player has reached the final cell (bottom right corner)
+            if (player.position === 29) {
+                showCustomPopup(`${player.name} a atteint la fin du plateau! La partie est terminée.`, checkForWinner);
+                return; // End the game immediately
+            }
+
+            triggerQuestion(player.position, playerIndex); // Show question popup after landing
+        }
+    }, 500); // Adjust the interval duration for smoother movement
 }
 
 // Trigger a question popup
@@ -160,14 +186,12 @@ function triggerQuestion(position, playerIndex) {
             showCustomPopup("Expérience ratée! Vous avez perdu une carte !", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
         } else {
             showCustomPopup("Expérience ratée! Vous n'avez pas de carte à perdre.", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
         }
@@ -233,6 +257,7 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
             }
             showCustomPopup("Bonne réponse! Vous avez gagné une carte Bonus et vous pouvez relancer le dé.", () => {
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
+                updatePlayerTurnMessage(); // Update the player turn message
             });
             return;
         }
@@ -246,8 +271,10 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
             showCustomPopup("Vous avez perdu une carte !", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `À toi de joueur ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
+                updatePlayerTurnMessage(); // Update the player turn message
+                // Show the "Lance le dé" message
+                document.getElementById('roll-dice-message').style.display = 'flex';
             });
             return;
         }
@@ -255,8 +282,10 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
 
     // Update turn
     currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-    playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
     rollDiceButton.disabled = false; // Re-enable the dice roll button
+    updatePlayerTurnMessage(); // Update the player turn message
+    // Show the "Lance le dé" message
+    document.getElementById('roll-dice-message').style.display = 'flex';
 }
 
 // Show custom popup
@@ -272,6 +301,9 @@ function showCustomPopup(message, callback) {
     function closeCustomPopup() {
         popup.remove();
         if (callback) callback();
+
+        // Show the "lancez le dé" message
+        document.getElementById('roll-dice-message').style.display = 'flex';
     }
 
     // Attach the closeCustomPopup function to the button
