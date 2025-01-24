@@ -184,27 +184,5 @@
             "question": "L'expérience des fentes de Young a démontré la nature ondulatoire de la lumière.",
             "answer": true
         }
-    ],
-    "Expérience ratée": [
-        {
-            "question": "L'expérience de la fusion froide a prouvé qu'il était possible d'obtenir de l'énergie à partir d'une réaction nucléaire à température ambiante.",
-            "answer": false
-        },
-        {
-            "question": "L'expérience de la colonie d'Eden a permis de créer un environnement parfait.",
-            "answer": false
-        },
-        {
-            "question": "La création du Crystal Palace a été un exemple de conception ratée qui a mené à sa destruction.",
-            "answer": false
-        },
-        {
-            "question": "L'expérience de Michelson-Morley a échoué à détecter l'éther, menant à une révolution en physique.",
-            "answer": true
-        },
-        {
-            "question": "La tentative de créer une machine à mouvement perpétuel a toujours échoué, violant les lois de la thermodynamique.",
-            "answer": true
-        }
     ]
 }
