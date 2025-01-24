@@ -83,15 +83,15 @@ textarea {
 }
 
 .board-cell[data-category="Bonus"] {
-    background-color: #ffff99;
+    background: linear-gradient(157.61deg, #E51C79 11.89%, #FFBF00 57.37%, #A4C639 80.11%, #6ACE81 91.49%, #30D5C8 102.86%);
 }
 
 .board-cell[data-category="Expérience réussie"] {
-    background-color: #32CD32; /* LimeGreen */
+    background: radial-gradient(circle, #32CD32 0%, #228B22 50%, #006400 100%);
 }
 
 .board-cell[data-category="Expérience ratée"] {
-    background-color: #FF6347; /* Tomato */
+    background: radial-gradient(circle, #FF6347 0%, #FF0000 50%, #8B0000 100%);
 }
 
 .board-cell[data-category="Erreurs historiques en science"]::after {
@@ -123,7 +123,33 @@ textarea {
 }
 
 .board-cell[data-category="Expérience ratée"]::after {
-    content: '\f165'; /* fa-thumbs-down */
+    content: '\f00d'; /* fa-times */
+}
+
+.board-cell[data-category="Final"]::after {
+    content: '\f276'; /* fa-solid fa-map-pin */
+}
+
+.board-cell[data-category="Final"] {
+    animation: colorChange 4s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: #FF6347; /* Tomato */
+    }
+    25% {
+        background-color: #FFBF00; /* Amber */
+    }
+    50% {
+        background-color: #32CD32; /* LimeGreen */
+    }
+    75% {
+        background-color: #007FFF; /* Azure */
+    }
+    100% {
+        background-color: #FF6347; /* Tomato */
+    }
 }
 
 .player-token {

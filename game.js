@@ -44,28 +44,32 @@ function createGameBoard() {
             cell.dataset.category = categories[i % (categories.length - specialCategories.length)];
         }
         // Add arrow to indicate direction
-        const arrow = document.createElement('div');
-        arrow.classList.add('direction-arrow');
-        if (i < 5) { // First line of the board
-            arrow.classList.add('right-arrow');
-        } else if (i === 5) { // Last cell of the first line
-            arrow.classList.add('down-arrow');
-        } else if (i >= 6 && i < 12 && (i % 2 !== 0 || (i >= 8 && i <= 10))) { // Second line of the board
-            arrow.classList.add('left-arrow');
-        } else if (i >= 12 && i < 17) { // Third line of the board
-            arrow.classList.add('right-arrow');
-        } else if (i === 17) { // Last cell of the third line
-            arrow.classList.add('down-arrow');
-        } else if (i === 18) { // First cell of the fourth line
-            arrow.classList.add('down-arrow');
-        } else if (i > 18 && i < 23) { // Fourth line of the board
-            arrow.classList.add('left-arrow');
-        } else if (i === 23) { // Last cell of the fourth line
-            arrow.classList.add('left-arrow');
-        } else if (i >= 24 && i < 30) { // Fifth line of the board
-            arrow.classList.add('right-arrow');
+        if (i !== 29) { // Do not add arrow to the last cell
+            const arrow = document.createElement('div');
+            arrow.classList.add('direction-arrow');
+            if (i < 5) { // First line of the board
+                arrow.classList.add('right-arrow');
+            } else if (i === 5) { // Last cell of the first line
+                arrow.classList.add('down-arrow');
+            } else if (i >= 6 && i < 12 && (i % 2 !== 0 || (i >= 8 && i <= 10))) { // Second line of the board
+                arrow.classList.add('left-arrow');
+            } else if (i >= 12 && i < 17) { // Third line of the board
+                arrow.classList.add('right-arrow');
+            } else if (i === 17) { // Last cell of the third line
+                arrow.classList.add('down-arrow');
+            } else if (i === 18) { // First cell of the fourth line
+                arrow.classList.add('down-arrow');
+            } else if (i > 18 && i < 23) { // Fourth line of the board
+                arrow.classList.add('left-arrow');
+            } else if (i === 23) { // Last cell of the fourth line
+                arrow.classList.add('left-arrow');
+            } else if (i >= 24 && i < 29) { // Fifth line of the board
+                arrow.classList.add('right-arrow');
+            }
+            cell.appendChild(arrow);
+        } else {
+            cell.dataset.category = "Final";
         }
-        cell.appendChild(arrow);
         gameBoard.appendChild(cell);
     }
 }
@@ -112,21 +116,19 @@ function rollDice() {
     rollDiceButton.disabled = true; // Disable the dice roll button
     rollDiceButton.classList.add('rolling'); // Add rolling class for animation
 
-    setTimeout(() => {
-        const diceValue = Math.floor(Math.random() * 6) + 1;
-        rollDiceButton.classList.remove('rolling'); // Remove rolling class after animation
+    const diceValue = Math.floor(Math.random() * 6) + 1;
+    rollDiceButton.classList.remove('rolling'); // Remove rolling class after animation
 
-        const currentPlayer = players[currentPlayerIndex];
+    const currentPlayer = players[currentPlayerIndex];
 
-        // Hide the "Lance le dé" message
-        document.getElementById('roll-dice-message').style.display = 'none';
+    // Hide the "Lance le dé" message
+    document.getElementById('roll-dice-message').style.display = 'none';
 
-        // Update the move message
-        moveMessage.textContent = `Tu avances de ${diceValue} cases, ${currentPlayer.name}`;
+    // Update the move message
+    moveMessage.textContent = `Tu avances de ${diceValue} cases, ${currentPlayer.name}`;
 
-        // Move player position
-        movePlayer(currentPlayerIndex, diceValue);
-    }, 1000); // Adjust timeout to match the animation duration
+    // Move player position
+    movePlayer(currentPlayerIndex, diceValue);
 }
 
 // Move player token step by step
@@ -358,7 +360,7 @@ function updateScore(playerIndex) {
             "Société": "Society.svg",
             "Bonus": "Bonus.svg",
             "Expérience réussie": "fa-thumbs-up",
-            "Expérience ratée": "failure.svg"
+            "Expérience ratée": "fa-times" // Change to "x" mark icon
         };
         if (card === "Expérience réussie") {
             return `<i class="fas ${cardImageMap[card]} card-icon"></i>`;
