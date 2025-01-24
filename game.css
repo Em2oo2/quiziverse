@@ -179,13 +179,49 @@ textarea {
     background-color: #007FFF; /* Add background color */
     color: white; /* Change text color */
     border: none; /* Remove border */
-    border-radius: 10px; /* Add border radius */
+    border-radius: 50px; /* Make the button round */
     cursor: pointer; /* Change cursor to pointer */
     transition: background-color 0.3s ease; /* Add transition for background color */
+    animation: rotateDice 2.5s linear infinite, changeColor 2.5s linear infinite; /* Add color change animation */
+    width: 60px; /* Set fixed width */
+    height: 60px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #roll-dice:hover {
     background-color: #005bb5; /* Change background color on hover */
+}
+
+@keyframes rotateDice {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: #E51C79;
+    }
+    20% {
+        background-color: #FFBF00;
+    }
+    40% {
+        background-color: #A4C639;
+    }
+    60% {
+        background-color: #6ACE81;
+    }
+    80% {
+        background-color: #30D5C8;
+    }
+    100% {
+        background-color: #E51C79;
+    }
 }
 
 #dice-value {
@@ -194,6 +230,8 @@ textarea {
 }
 
 #score-board {
+    position: sticky; /* Make the score board sticky */
+    top: 0; /* Stick to the top of the page */
     margin-top: 0;
     margin-left: 20px;
     width: 20%;
@@ -293,6 +331,14 @@ textarea {
     background-color: #ffcccc;
 }
 
+.question-popup.correct-answer-blink {
+    animation: correctAnswerBlink 1s ease-in-out;
+}
+
+.question-popup.incorrect-answer-blink {
+    animation: incorrectAnswerBlink 1s ease-in-out;
+}
+
 @keyframes correctAnswerAnimation {
     0% { background-color: #fff; }
     50% { background-color: #ccffcc; }
@@ -303,6 +349,16 @@ textarea {
     0% { background-color: #fff; }
     50% { background-color: #ffcccc; }
     100% { background-color: #fff; }
+}
+
+@keyframes correctAnswerBlink {
+    0%, 100% { background-color: white; }
+    50% { background-color: #ccffcc; }
+}
+
+@keyframes incorrectAnswerBlink {
+    0%, 100% { background-color: white; }
+    50% { background-color: #ffcccc; }
 }
 
 .card-images {
@@ -316,6 +372,11 @@ textarea {
 .card-images img {
     width: 100%; /* Make images adapt to the available space */
     height: auto;
+    transition: transform 0.3s ease; /* Add transition for smooth scaling */
+}
+
+.card-images img:hover {
+    transform: scale(1.5); /* Scale up the image on hover */
 }
 
 .card-icon {
@@ -334,8 +395,25 @@ textarea {
     padding: 15px 20px; /* Padding */
     border-radius: 10px; /* Border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow */
-    font-size: 1.2em; /* Font size */
+    font-size: 1.5em; /* Increase font size */
     text-align: center; /* Center text */
+    font-weight: bold; /* Make text bold */
+    animation: pulse 1.5s infinite; /* Add pulse animation */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .direction-arrow {
@@ -472,7 +550,7 @@ textarea {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border: 2px solid #ccc;
+    border: 2px solid transparent; /* Change to transparent */
     padding: 30px;
     z-index: 1000;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -480,6 +558,37 @@ textarea {
     max-width: 900px;
     border-radius: 15px;
     text-align: center;
+    background-clip: padding-box; /* Ensure the background is clipped to the padding box */
+}
+
+.winner-popup::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 15px;
+    background: linear-gradient(157.61deg, #E51C79 11.89%, #FFBF00 57.37%, #A4C639 80.11%, #6ACE81 91.49%, #30D5C8 102.86%);
+    z-index: -1;
+    animation: shine 1.5s infinite linear; /* Add shine animation */
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0); /* Ensure only the border shines */
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0); /* Ensure only the border shines */
+    mask-composite: exclude; /* Exclude the inner content */
+    -webkit-mask-composite: destination-out; /* Exclude the inner content */
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 .winner-popup h2 {
@@ -584,4 +693,18 @@ textarea {
 
 .top-left-buttons button:hover {
     background-color: #005bb5;
+}
+
+.roll-dice-message {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 1.2em;
+    color: #007FFF;
+    animation: pulse 1.5s infinite; /* Add pulse animation */
+}
+
+.roll-dice-message i {
+    margin-right: 5px; /* Adjust margin to the right */
+    font-size: 1.2em;
 }
