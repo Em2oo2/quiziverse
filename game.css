@@ -162,6 +162,16 @@ textarea {
     border: 2px solid white; /* Add border */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow */
     z-index: 2; /* Ensure tokens are above icons */
+    animation: bounce 1s infinite; /* Add bounce animation */
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .player-token-score {
