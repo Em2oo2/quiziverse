@@ -51,18 +51,18 @@ function createGameBoard() {
                 arrow.classList.add('right-arrow');
             } else if (i === 5) { // Last cell of the first line
                 arrow.classList.add('down-arrow');
-            } else if (i >= 6 && i < 12 && (i % 2 !== 0 || (i >= 8 && i <= 10))) { // Second line of the board
+            } else if (i >= 6 && i < 11) { // Second line of the board
                 arrow.classList.add('left-arrow');
+            } else if (i === 11) { // Last cell of the second line
+                arrow.classList.add('down-arrow');
             } else if (i >= 12 && i < 17) { // Third line of the board
                 arrow.classList.add('right-arrow');
             } else if (i === 17) { // Last cell of the third line
                 arrow.classList.add('down-arrow');
-            } else if (i === 18) { // First cell of the fourth line
-                arrow.classList.add('down-arrow');
-            } else if (i > 18 && i < 23) { // Fourth line of the board
+            } else if (i >= 18 && i < 23) { // Fourth line of the board
                 arrow.classList.add('left-arrow');
             } else if (i === 23) { // Last cell of the fourth line
-                arrow.classList.add('left-arrow');
+                arrow.classList.add('down-arrow');
             } else if (i >= 24 && i < 29) { // Fifth line of the board
                 arrow.classList.add('right-arrow');
             }
@@ -131,26 +131,40 @@ function rollDice() {
     movePlayer(currentPlayerIndex, diceValue);
 }
 
-// Move player token step by step
+// Custom token movement order based on your board layout
+const customMovementOrder = [
+    0, 1, 2, 3, 4, 5,    // First row: left-to-right
+    11, 10, 9, 8, 7, 6,  // Second row: right-to-left
+    12, 13, 14, 15, 16, 17, // Third row: left-to-right
+    23, 22, 21, 20, 19, 18, // Fourth row: right-to-left
+    24, 25, 26, 27, 28, 29  // Fifth row: left-to-right
+];
+
+// Move player token step by step based on the custom order
 function movePlayer(playerIndex, steps) {
     const player = players[playerIndex];
     let currentStep = 0;
 
     const interval = setInterval(() => {
         if (currentStep < steps) {
-            player.position = (player.position + 1) % 30;
+            // Determine the new position based on the custom movement order
+            const currentPos = player.position === -1 ? -1 : customMovementOrder.indexOf(player.position);
+            const nextPos = (currentPos + 1) % customMovementOrder.length;
+            player.position = customMovementOrder[nextPos];
+
             updatePlayerPosition(playerIndex);
             currentStep++;
         } else {
             clearInterval(interval);
 
-            // Check if the player has reached the final cell (bottom right corner)
-            if (player.position === 29) {
+            // Check if the player has reached the final cell
+            if (player.position === customMovementOrder[customMovementOrder.length - 1]) {
                 showCustomPopup(`${player.name} a atteint la fin du plateau! La partie est terminée.`, checkForWinner);
-                return; // End the game immediately
+                return;
             }
 
-            triggerQuestion(player.position, playerIndex); // Show question popup after landing
+            // Trigger question for the new position
+            triggerQuestion(player.position, playerIndex);
         }
     }, 500); // Adjust the interval duration for smoother movement
 }
