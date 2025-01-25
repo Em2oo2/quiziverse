@@ -44,30 +44,27 @@ function createGameBoard() {
             cell.dataset.category = categories[i % (categories.length - specialCategories.length)];
         }
         // Add arrow to indicate direction
-        if (i !== 29) { // Do not add arrow to the last cell
+        if (i !== 29) { // Do not add an arrow to the last cell
             const arrow = document.createElement('div');
             arrow.classList.add('direction-arrow');
-            if (i < 5) { // First line of the board
-                arrow.classList.add('right-arrow');
-            } else if (i === 5) { // Last cell of the first line
-                arrow.classList.add('down-arrow');
-            } else if (i >= 6 && i < 11) { // Second line of the board
+        
+            if (i === 23) { // Special case for cell 24
                 arrow.classList.add('left-arrow');
-            } else if (i === 11) { // Last cell of the second line
-                arrow.classList.add('down-arrow');
-            } else if (i >= 12 && i < 17) { // Third line of the board
+            } else if (i < 5) { // First row: right arrows
                 arrow.classList.add('right-arrow');
-            } else if (i === 17) { // Last cell of the third line
+            } else if (i === 5 || i === 6 || i === 17 || i === 18) { // Last cell of each row except the last row
                 arrow.classList.add('down-arrow');
-            } else if (i >= 18 && i < 23) { // Fourth line of the board
+            } else if (i === 11 || (i >= 7 && i <= 10) || (i >= 18 && i <= 22)) { // Second and fourth rows: left arrows
                 arrow.classList.add('left-arrow');
-            } else if (i === 23) { // Last cell of the fourth line
-                arrow.classList.add('down-arrow');
-            } else if (i >= 24 && i < 29) { // Fifth line of the board
+            } else if (i >= 12 && i <= 16 || i <= 28) { // Third and fifth rows: right arrows
                 arrow.classList.add('right-arrow');
             }
-            cell.appendChild(arrow);
-        } else {
+        
+            cell.appendChild(arrow); // Add arrow to the cell
+        }
+        
+        
+        else {
             cell.dataset.category = "Final";
         }
         gameBoard.appendChild(cell);
