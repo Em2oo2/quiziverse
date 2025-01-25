@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="top-left-buttons" style="position: fixed; left: 0; display: flex; flex-direction: column;">
-        <button onclick="window.location.href='index.html'"><i class="fas fa-home"></i></button>
-        <button onclick="window.location.href='players.html'"><i class="fas fa-users"></i></button>
+        <button onclick="window.location.href='index.html'" title="Retour au menu principal"><i class="fas fa-home"></i></button>
+        <button onclick="window.location.href='players.html'" title="Retour au choix des joueurs"><i class="fas fa-users"></i></button>
     </div>
     <div class="container">
         <div id="game-board" class="board"></div>
@@ -27,16 +27,20 @@
         <div class="controls">
             <div class="dice-container">
                 <button id="roll-dice"><i class="fas fa-dice"></i></button>
-                <div id="dice-value">0</div>
+                <div id="roll-dice-message" class="roll-dice-message">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Lancez le dé</span>
+                </div>
+            </div>
+            <div id="move-message" class="move-message">
+                <!-- This will be updated dynamically -->
             </div>
         </div>
-    </div>
-    <div class="player-turn-box" id="player-turn-box">
-        <div id="player-turn">À toi de jouer...</div>
     </div>
     <div class="landscape-prompt" id="landscape-prompt">
         Veuillez passer en mode paysage pour une meilleure expérience.
     </div>
+    <audio id="background-music" src="music/Question Quest - 2.mp3" loop autoplay></audio>
     <script src="game.js"></script>
     <script>
         function checkOrientation() {
