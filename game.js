@@ -435,12 +435,16 @@ function checkForWinner() {
             }).join('')}
         </ul>
         <button id="replay-button">Rejouer</button>
-        <button href="index.html"><i class="fas fa-home"></button>
+        <button id="main-menu-button">Menu Principal</button>
     `;
     document.body.appendChild(winnerPopup);
 
     // Attach the replayGame function to the button
     document.getElementById('replay-button').addEventListener('click', replayGame);
+    // Attach the main menu function to the button
+    document.getElementById('main-menu-button').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
 }
 
 // Replay the game
