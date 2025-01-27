@@ -42,7 +42,7 @@ QuiziVerse est un jeu de plateau éducatif et amusant qui met à l'épreuve vos 
    git clone https://github.com/Em2oo2/quiziverse.git
    ```
 
-2. Ouvrez le fichier `game.html` dans votre navigateur pour commencer à jouer.
+2. Ouvrez le fichier `index.html` dans votre navigateur pour commencer à jouer.
 
 ## Technologies utilisées
 
@@ -52,8 +52,7 @@ QuiziVerse est un jeu de plateau éducatif et amusant qui met à l'épreuve vos 
 
 ## Auteurs
 
-- Nom de l'auteur 1
-- Nom de l'auteur 2
+- Émeline Stehlin Barthez
 
 ## Licence
 
