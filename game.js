@@ -435,7 +435,7 @@ function checkForWinner() {
             }).join('')}
         </ul>
         <button id="replay-button">Rejouer</button>
-        <button><i class="fas fa-home"></button>
+        <button href="index.html"><i class="fas fa-home"></button>
     `;
     document.body.appendChild(winnerPopup);
 
