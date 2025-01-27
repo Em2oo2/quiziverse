@@ -279,7 +279,6 @@ textarea {
     border-radius: 30px; /* Add border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Add shadow */
     overflow: hidden; /* Prevent overflow */
-    border: solid 0.1rem #000;
 }
 
 #score-board .controls {
