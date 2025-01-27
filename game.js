@@ -124,8 +124,12 @@ function rollDice() {
     // Update the move message
     moveMessage.textContent = `Tu avances de ${diceValue} cases, ${currentPlayer.name}`;
 
+    // Calculate the number of spaces left to the final cell
+    const currentPos = customMovementOrder.indexOf(currentPlayer.position);
+    const spacesLeft = 29 - currentPos;
+
     // Move player position
-    movePlayer(currentPlayerIndex, diceValue);
+    movePlayer(currentPlayerIndex, Math.min(diceValue, spacesLeft));
 }
 
 // Custom token movement order based on your board layout
@@ -151,14 +155,15 @@ function movePlayer(playerIndex, steps) {
 
             updatePlayerPosition(playerIndex);
             currentStep++;
-        } else {
-            clearInterval(interval);
 
             // Check if the player has reached the final cell
-            if (player.position === customMovementOrder[customMovementOrder.length - 1]) {
+            if (player.position === 29) {
+                clearInterval(interval);
                 showCustomPopup(`${player.name} a atteint la fin du plateau! La partie est terminée.`, checkForWinner);
                 return;
             }
+        } else {
+            clearInterval(interval);
 
             // Trigger question for the new position
             triggerQuestion(player.position, playerIndex);
