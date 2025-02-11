@@ -1,9 +1,8 @@
 // Elements for the board game
 const gameBoard = document.getElementById('game-board');
 const rollDiceButton = document.getElementById('roll-dice');
-const playerTurnIndicator = document.getElementById('player-turn');
 const scoreBoard = document.getElementById('score-board');
-const diceValueDisplay = document.getElementById('dice-value');
+const moveMessage = document.getElementById('move-message'); // Add reference to move message
 
 // Game Data
 const categories = [
@@ -45,28 +44,29 @@ function createGameBoard() {
             cell.dataset.category = categories[i % (categories.length - specialCategories.length)];
         }
         // Add arrow to indicate direction
-        const arrow = document.createElement('div');
-        arrow.classList.add('direction-arrow');
-        if (i < 5) { // First line of the board
-            arrow.classList.add('right-arrow');
-        } else if (i === 5) { // Last cell of the first line
-            arrow.classList.add('down-arrow');
-        } else if (i >= 6 && i < 12 && (i % 2 !== 0 || (i >= 8 && i <= 10))) { // Second line of the board
-            arrow.classList.add('left-arrow');
-        } else if (i >= 12 && i < 17) { // Third line of the board
-            arrow.classList.add('right-arrow');
-        } else if (i === 17) { // Last cell of the third line
-            arrow.classList.add('down-arrow');
-        } else if (i === 18) { // First cell of the fourth line
-            arrow.classList.add('down-arrow');
-        } else if (i > 18 && i < 23) { // Fourth line of the board
-            arrow.classList.add('left-arrow');
-        } else if (i === 23) { // Last cell of the fourth line
-            arrow.classList.add('left-arrow');
-        } else if (i >= 24 && i < 30) { // Fifth line of the board
-            arrow.classList.add('right-arrow');
+        if (i !== 29) { // Do not add an arrow to the last cell
+            const arrow = document.createElement('div');
+            arrow.classList.add('direction-arrow');
+        
+            if (i === 23) { // Special case for cell 24
+                arrow.classList.add('left-arrow');
+            } else if (i < 5) { // First row: right arrows
+                arrow.classList.add('right-arrow');
+            } else if (i === 5 || i === 6 || i === 17 || i === 18) { // Last cell of each row except the last row
+                arrow.classList.add('down-arrow');
+            } else if (i === 11 || (i >= 7 && i <= 10) || (i >= 18 && i <= 22)) { // Second and fourth rows: left arrows
+                arrow.classList.add('left-arrow');
+            } else if (i >= 12 && i <= 16 || i <= 28) { // Third and fifth rows: right arrows
+                arrow.classList.add('right-arrow');
+            }
+        
+            cell.appendChild(arrow); // Add arrow to the cell
         }
-        cell.appendChild(arrow);
+        
+        
+        else {
+            cell.dataset.category = "Final";
+        }
         gameBoard.appendChild(cell);
     }
 }
@@ -96,33 +96,79 @@ function setupPlayers() {
         token.style.left = '-40px'; // Position to the left of the first cell
         token.style.top = 'calc(50% - 15px)'; // Center vertically
     }
-    playerTurnIndicator.textContent = `C'est au tour de ${players[0].name}`;
+    updatePlayerTurnMessage();
+}
+
+// Update the player turn message
+function updatePlayerTurnMessage() {
+    const currentPlayer = players[currentPlayerIndex];
+    document.getElementById('roll-dice-message').innerHTML = `
+        <i class="fas fa-arrow-left"></i>
+        <span>Lance le dé ${currentPlayer.name}</span>
+    `;
 }
 
 // Roll the dice and move the player
 function rollDice() {
     rollDiceButton.disabled = true; // Disable the dice roll button
+    rollDiceButton.classList.add('rolling'); // Add rolling class for animation
+
     const diceValue = Math.floor(Math.random() * 6) + 1;
-    diceValueDisplay.textContent = diceValue;
+    rollDiceButton.classList.remove('rolling'); // Remove rolling class after animation
+
     const currentPlayer = players[currentPlayerIndex];
 
+    // Hide the "Lance le dé" message
+    document.getElementById('roll-dice-message').style.display = 'none';
+
+    // Update the move message
+    moveMessage.textContent = `Tu avances de ${diceValue} cases, ${currentPlayer.name}`;
+
+    // Calculate the number of spaces left to the final cell
+    const currentPos = customMovementOrder.indexOf(currentPlayer.position);
+    const spacesLeft = 29 - currentPos;
+
     // Move player position
-    if (currentPlayer.position + diceValue >= 29) {
-        currentPlayer.position = 29;
-    } else {
-        currentPlayer.position = (currentPlayer.position + diceValue) % 30;
-    }
+    movePlayer(currentPlayerIndex, Math.min(diceValue, spacesLeft));
+}
 
-    // Update visuals
-    updatePlayerPosition(currentPlayerIndex);
+// Custom token movement order based on your board layout
+const customMovementOrder = [
+    0, 1, 2, 3, 4, 5,    // First row: left-to-right
+    11, 10, 9, 8, 7, 6,  // Second row: right-to-left
+    12, 13, 14, 15, 16, 17, // Third row: left-to-right
+    23, 22, 21, 20, 19, 18, // Fourth row: right-to-left
+    24, 25, 26, 27, 28, 29  // Fifth row: left-to-right
+];
 
-    // Check if the player has reached the final cell (bottom right corner)
-    if (currentPlayer.position === 29) {
-        showCustomPopup(`${currentPlayer.name} a atteint la fin du plateau! La partie est terminée.`, checkForWinner);
-        return; // End the game immediately
-    }
+// Move player token step by step based on the custom order
+function movePlayer(playerIndex, steps) {
+    const player = players[playerIndex];
+    let currentStep = 0;
 
-    triggerQuestion(currentPlayer.position, currentPlayerIndex);
+    const interval = setInterval(() => {
+        if (currentStep < steps) {
+            // Determine the new position based on the custom movement order
+            const currentPos = player.position === -1 ? -1 : customMovementOrder.indexOf(player.position);
+            const nextPos = (currentPos + 1) % customMovementOrder.length;
+            player.position = customMovementOrder[nextPos];
+
+            updatePlayerPosition(playerIndex);
+            currentStep++;
+
+            // Check if the player has reached the final cell
+            if (player.position === 29) {
+                clearInterval(interval);
+                showCustomPopup(`${player.name} a atteint la fin du plateau! La partie est terminée.`, checkForWinner);
+                return;
+            }
+        } else {
+            clearInterval(interval);
+
+            // Trigger question for the new position
+            triggerQuestion(player.position, playerIndex);
+        }
+    }, 500); // Adjust the interval duration for smoother movement
 }
 
 // Trigger a question popup
@@ -160,14 +206,12 @@ function triggerQuestion(position, playerIndex) {
             showCustomPopup("Expérience ratée! Vous avez perdu une carte !", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
         } else {
             showCustomPopup("Expérience ratée! Vous n'avez pas de carte à perdre.", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `À toi de jouer ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
             });
         }
@@ -203,7 +247,14 @@ function triggerQuestion(position, playerIndex) {
 // Handle question response
 function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
     const popup = document.querySelector('.question-popup');
-    if (popup) popup.remove();
+    if (popup) {
+        if (playerAnswer === correctAnswer) {
+            popup.classList.add('correct-answer-blink');
+        } else {
+            popup.classList.add('incorrect-answer-blink');
+        }
+        setTimeout(() => popup.remove(), 1000);
+    }
 
     const currentPlayer = players[playerIndex];
     const cell = document.querySelectorAll('.board-cell')[currentPlayer.position];
@@ -226,6 +277,7 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
             }
             showCustomPopup("Bonne réponse! Vous avez gagné une carte Bonus et vous pouvez relancer le dé.", () => {
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
+                updatePlayerTurnMessage(); // Update the player turn message
             });
             return;
         }
@@ -239,8 +291,11 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
             showCustomPopup("Vous avez perdu une carte !", () => {
                 // Update turn to the next player
                 currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-                playerTurnIndicator.textContent = `À toi de joueur ${players[currentPlayerIndex].name}`;
                 rollDiceButton.disabled = false; // Re-enable the dice roll button
+                updatePlayerTurnMessage(); // Update the player turn message
+                // Show the "Lance le dé" message
+                document.getElementById('roll-dice-message').style.display = 'flex';
+                moveMessage.textContent = ''; // Clear the move message
             });
             return;
         }
@@ -248,8 +303,11 @@ function answerQuestion(playerAnswer, playerIndex, correctAnswer, isBonus) {
 
     // Update turn
     currentPlayerIndex = (currentPlayerIndex + 1) % numPlayers;
-    playerTurnIndicator.textContent = `C'est au tour de ${players[currentPlayerIndex].name}`;
     rollDiceButton.disabled = false; // Re-enable the dice roll button
+    updatePlayerTurnMessage(); // Update the player turn message
+    // Show the "Lance le dé" message
+    document.getElementById('roll-dice-message').style.display = 'flex';
+    moveMessage.textContent = ''; // Clear the move message
 }
 
 // Show custom popup
@@ -265,6 +323,9 @@ function showCustomPopup(message, callback) {
     function closeCustomPopup() {
         popup.remove();
         if (callback) callback();
+
+        // Show the "lancez le dé" message
+        document.getElementById('roll-dice-message').style.display = 'flex';
     }
 
     // Attach the closeCustomPopup function to the button
@@ -315,7 +376,7 @@ function updateScore(playerIndex) {
             "Société": "Society.svg",
             "Bonus": "Bonus.svg",
             "Expérience réussie": "fa-thumbs-up",
-            "Expérience ratée": "failure.svg"
+            "Expérience ratée": "fa-times" // Change to "x" mark icon
         };
         if (card === "Expérience réussie") {
             return `<i class="fas ${cardImageMap[card]} card-icon"></i>`;
@@ -359,7 +420,7 @@ function checkForWinner() {
                         "Inventions accidentelles": "Accidental Inventions.svg",
                         "Échecs dans l'espace": "Space Failures.svg",
                         "Prédictions scientifiques erronées": "Inaccurate Scientific Predictions.svg",
-                        "Société": "society.svg",
+                        "Société": "Society.svg",
                         "Bonus": "Bonus.svg",
                         "Expérience réussie": "fa-thumbs-up",
                         "Expérience ratée": "failure.svg"
@@ -374,11 +435,16 @@ function checkForWinner() {
             }).join('')}
         </ul>
         <button id="replay-button">Rejouer</button>
+        <button id="main-menu-button">Menu Principal</button>
     `;
     document.body.appendChild(winnerPopup);
 
     // Attach the replayGame function to the button
     document.getElementById('replay-button').addEventListener('click', replayGame);
+    // Attach the main menu function to the button
+    document.getElementById('main-menu-button').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
 }
 
 // Replay the game
